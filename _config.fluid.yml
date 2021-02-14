@@ -496,7 +496,7 @@ post:
       # 格式参照 ISO-8601 日期格式化
       # ISO-8601 date format
       # See: http://momentjs.cn/docs/#/parsing/string-format/
-      format: "dddd, MMMM Do YYYY, h:mm a"
+      format: "dddd, MMMM Do YYYY, HH:mm"
 
     # 字数统计
     # Word count
