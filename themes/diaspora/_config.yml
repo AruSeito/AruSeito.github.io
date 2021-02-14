@@ -22,8 +22,66 @@ welcome_cover: /img/welcome-cover.jpg
 
 # 默认文章封面图（随机调用,支持外链）
 cover:
-  - /img/cover.jpg
-  - /img/welcome-cover.jpg
+  - /img/cover1.jpg
+  - /img/cover2.jpg
+  - /img/cover3.jpg
+  - /img/cover4.jpg
+  - /img/cover5.jpg
+  - /img/cover6.jpg
+  - /img/cover7.jpg
+  - /img/cover8.jpg
+  - /img/cover9.jpg
+  - /img/cover10.jpg
+  - /img/cover11.jpg
+  - /img/cover12.jpg
+  - /img/cover13.jpg
+  - /img/cover14.jpg
+  - /img/cover15.jpg
+  - /img/cover16.jpg
+  - /img/cover17.jpg
+  - /img/cover18.jpg
+  - /img/cover19.jpg
+  - /img/cover20.jpg
+  - /img/cover21.jpg
+  - /img/cover22.jpg
+  - /img/cover23.jpg
+  - /img/cover24.jpg
+  - /img/cover25.jpg
+  - /img/cover26.jpg
+  - /img/cover27.jpg
+  - /img/cover28.jpg
+  - /img/cover29.jpg
+  - /img/cover30.jpg
+  - /img/cover31.jpg
+  - /img/cover32.jpg
+  - /img/cover33.jpg
+  - /img/cover34.jpg
+  - /img/cover35.jpg
+  - /img/cover36.jpg
+  - /img/cover37.jpg
+  - /img/cover38.jpg
+  - /img/cover39.jpg
+  - /img/cover40.jpg
+  - /img/cover41.jpg
+  - /img/cover42.jpg
+  - /img/cover43.jpg
+  - /img/cover44.jpg
+  - /img/cover45.jpg
+  - /img/cover46.jpg
+  - /img/cover47.jpg
+  - /img/cover48.jpg
+  - /img/cover49.jpg
+  - /img/cover50.jpg
+  - /img/cover51.jpg
+  - /img/cover52.jpg
+  - /img/cover53.jpg
+  - /img/cover54.jpg
+  - /img/cover55.jpg
+  - /img/cover56.jpg
+  - /img/cover57.jpg
+  - /img/cover58.jpg
+  - /img/cover59.jpg
+  - /img/cover60.jpg
 
 # 是否使用mathjax
 mathjax: false
