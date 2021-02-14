@@ -98,9 +98,17 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: diaspora
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: ""
+
+# Search
+## Search-plugin
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
