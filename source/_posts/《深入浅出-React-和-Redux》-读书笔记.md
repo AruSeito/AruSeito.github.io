@@ -7,6 +7,8 @@ tags:
  - React
  - Redux
 date: 2021-02-14 22:18:05
+index_img: /img/banner/bg2.jpg
+banner_img: /img/banner/bg2.jpg
 ---
 # 《深入浅出 React 和 Redux》 读书笔记
 

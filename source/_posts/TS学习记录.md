@@ -5,6 +5,8 @@ categories:
 tags:
  - 前端
 date: 2021-02-14 22:16:28
+index_img: /img/banner/bg26.jpg
+banner_img: /img/banner/bg26.jpg
 ---
 # TS 常用点整理
 

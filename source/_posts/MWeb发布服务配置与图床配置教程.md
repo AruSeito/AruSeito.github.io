@@ -6,6 +6,8 @@ tags:
   - MWEB
   - 工具
 date: 2021-02-14 22:09:55
+index_img: /img/banner/bg25.jpg
+banner_img: /img/banner/bg25.jpg
 ---
 ## 前言
 
