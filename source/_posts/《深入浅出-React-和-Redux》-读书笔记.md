@@ -1,9 +1,11 @@
 ---
 title: 《深入浅出 React 和 Redux》 读书笔记
 categories:
-  - 前端
-  - React
   - 旧博客文章
+tags:
+ - 前端
+ - React
+ - Redux
 date: 2021-02-14 22:18:05
 ---
 # 《深入浅出 React 和 Redux》 读书笔记
