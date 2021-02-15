@@ -1,11 +1,12 @@
 ---
 title: {{ title }}
-date: {{ date }}
 categories:
-  - 分类1
-  - 分类2
+  - 分类
 tags:
-  - 标签1
-  - 标签2
-mp3: http://domain.com/awesome.mp3
+ - 标签1
+ - 标签2
+date: {{ date }}
+updated: {{ date }}
+index_img: /img/banner/bg2.jpg
+banner_img: /img/banner/bg2.jpg
 ---
