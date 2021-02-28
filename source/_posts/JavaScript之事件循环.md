@@ -5,8 +5,8 @@ categories:
 tags:
   - Node.js
   - JavaScript
-index_img: /img/banner/bg1.jpg
-banner_img: /img/banner/bg1.jpg
+index_img: https://cdn.jsdelivr.net/gh/AruSeito/AruSeito.github.io@main/source/img/banner/bg1.jpg
+banner_img: https://cdn.jsdelivr.net/gh/AruSeito/AruSeito.github.io@main/source/img/banner/bg1.jpg
 date: 2021-02-22 10:45:20
 updated: 2021-02-22 10:45:20
 ---

@@ -6,8 +6,8 @@ tags:
   - 自动化测试
   - jest
   - enzyme
-index_img: /img/banner/bg6.jpg
-banner_img: /img/banner/bg6.jpg
+index_img: https://cdn.jsdelivr.net/gh/AruSeito/AruSeito.github.io@main/source/img/banner/bg6.jpg
+banner_img: https://cdn.jsdelivr.net/gh/AruSeito/AruSeito.github.io@main/source/img/banner/bg6.jpg
 date: 2021-02-20 18:38:03
 updated: 2021-02-20 18:38:03
 ---

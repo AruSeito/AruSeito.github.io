@@ -8,8 +8,9 @@ tags:
  - Redux
 date: 2021-02-14 22:18:05
 updated: 2021-02-15 00:34:32
-index_img: /img/banner/bg2.jpg
-banner_img: /img/banner/bg2.jpg
+index_img: https://cdn.jsdelivr.net/gh/AruSeito/AruSeito.github.io@main/source/img/banner/bg2.jpg
+banner_img: https://cdn.jsdelivr.net/gh/AruSeito/AruSeito.github.io@main/source/img/banner/bg2.jpg
+
 ---
 # 《深入浅出 React 和 Redux》 读书笔记
 
