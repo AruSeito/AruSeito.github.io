@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>AruSeito</title>
+    <link>https://aruseito.github.io/</link>
+    
+    <image>
+      <url>https://aruseito.github.io/icon.png</url>
+      <title>AruSeito</title>
+      <link>https://aruseito.github.io/</link>
+    </image>
+    
+    <atom:link href="https://aruseito.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
+    
+    <description>前端养生搬砖工</description>
+    <pubDate>Fri, 26 Feb 2021 14:10:21 GMT</pubDate>
+    <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>性能优化之渲染优化</title>
+      <link>https://aruseito.github.io/2021/02/26/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E6%B8%B2%E6%9F%93%E4%BC%98%E5%8C%96/</link>
+      <guid>https://aruseito.github.io/2021/02/26/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E6%B8%B2%E6%9F%93%E4%BC%98%E5%8C%96/</guid>
+      <pubDate>Fri, 26 Feb 2021 14:10:21 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;h2 id=&quot;浏览器渲染过程（对应面试题：从用户输入url到显示都发生了什么）&quot;&gt;&lt;a href=&quot;#浏览器渲染过程（对应面试题：从用户输入url到显示都发生了什么）&quot; class=&quot;headerlink&quot;</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://aruseito.github.io/categories/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">性能优化</category>
+      
+      
+      <category domain="https://aruseito.github.io/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">性能优化</category>
+      
+      <category domain="https://aruseito.github.io/tags/%E6%B8%B2%E6%9F%93%E6%B5%81%E7%A8%8B/">渲染流程</category>
+      
+      
+      <comments>https://aruseito.github.io/2021/02/26/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E6%B8%B2%E6%9F%93%E4%BC%98%E5%8C%96/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>性能优化之性能优化的指标与工具</title>
+      <link>https://aruseito.github.io/2021/02/25/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E7%9A%84%E6%8C%87%E6%A0%87%E4%B8%8E%E5%B7%A5%E5%85%B7/</link>
+      <guid>https://aruseito.github.io/2021/02/25/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E7%9A%84%E6%8C%87%E6%A0%87%E4%B8%8E%E5%B7%A5%E5%85%B7/</guid>
+      <pubDate>Thu, 25 Feb 2021 03:25:06 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;h2 id=&quot;性能优化的意义&quot;&gt;&lt;a href=&quot;#性能优化的意义&quot; class=&quot;headerlink&quot; title=&quot;性能优化的意义&quot;&gt;&lt;/a&gt;性能优化的意义&lt;/h2&gt;&lt;p&gt;高性能意味着用户参与度提高，用户留存数提高，进而促进高转化率，seo排名也会提高。&lt;/p&gt;
+&lt;h2</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://aruseito.github.io/categories/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">性能优化</category>
+      
+      
+      <category domain="https://aruseito.github.io/tags/%E5%B7%A5%E5%85%B7/">工具</category>
+      
+      <category domain="https://aruseito.github.io/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">性能优化</category>
+      
+      
+      <comments>https://aruseito.github.io/2021/02/25/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E7%9A%84%E6%8C%87%E6%A0%87%E4%B8%8E%E5%B7%A5%E5%85%B7/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>JavaScript之事件循环</title>
+      <link>https://aruseito.github.io/2021/02/22/JavaScript%E4%B9%8B%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/</link>
+      <guid>https://aruseito.github.io/2021/02/22/JavaScript%E4%B9%8B%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/</guid>
+      <pubDate>Mon, 22 Feb 2021 02:45:20 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;blockquote&gt;
+&lt;p&gt;本文摘抄自&lt;a href=&quot;https://mp.weixin.qq.com/s/a6aFweCiLF0Mx03fARP8qQ&quot;&gt;淘宝技术&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;事件循环是什么？&quot;&gt;&lt;a</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://aruseito.github.io/categories/JavaScript/">JavaScript</category>
+      
+      
+      <category domain="https://aruseito.github.io/tags/Node-js/">Node.js</category>
+      
+      <category domain="https://aruseito.github.io/tags/JavaScript/">JavaScript</category>
+      
+      
+      <comments>https://aruseito.github.io/2021/02/22/JavaScript%E4%B9%8B%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>enzyme学习记录之Shallow,Mount,render的区别</title>
+      <link>https://aruseito.github.io/2021/02/20/enzyme%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</link>
+      <guid>https://aruseito.github.io/2021/02/20/enzyme%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</guid>
+      <pubDate>Sat, 20 Feb 2021 10:38:03 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;h2 id=&quot;render&quot;&gt;&lt;a href=&quot;#render&quot; class=&quot;headerlink&quot; title=&quot;render&quot;&gt;&lt;/a&gt;render&lt;/h2&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://aruseito.github.io/categories/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/">自动化测试</category>
+      
+      
+      <category domain="https://aruseito.github.io/tags/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/">自动化测试</category>
+      
+      <category domain="https://aruseito.github.io/tags/jest/">jest</category>
+      
+      <category domain="https://aruseito.github.io/tags/enzyme/">enzyme</category>
+      
+      
+      <comments>https://aruseito.github.io/2021/02/20/enzyme%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>travis-ci学习记录</title>
+      <link>https://aruseito.github.io/2021/02/15/travis-ci-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</link>
+      <guid>https://aruseito.github.io/2021/02/15/travis-ci-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</guid>
+      <pubDate>Mon, 15 Feb 2021 14:06:58 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;名词解释大部分均为机器直翻，部分稍加个人理解&lt;/p&gt;
+&lt;h2 id=&quot;名词解释&quot;&gt;&lt;a href=&quot;#名词解释&quot; class=&quot;headerlink&quot;</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://aruseito.github.io/categories/%E6%97%A7%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">旧博客文章</category>
+      
+      
+      <category domain="https://aruseito.github.io/tags/%E5%B7%A5%E7%A8%8B%E5%8C%96/">工程化</category>
+      
+      <category domain="https://aruseito.github.io/tags/%E6%8C%81%E7%BB%AD%E5%8C%96%E9%9B%86%E6%88%90/">持续化集成</category>
+      
+      
+      <comments>https://aruseito.github.io/2021/02/15/travis-ci-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>脚手架开发记录</title>
+      <link>https://aruseito.github.io/2021/02/15/%E8%84%9A%E6%89%8B%E6%9E%B6%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95/</link>
+      <guid>https://aruseito.github.io/2021/02/15/%E8%84%9A%E6%89%8B%E6%9E%B6%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95/</guid>
+      <pubDate>Mon, 15 Feb 2021 14:00:55 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;h1 id=&quot;脚手架开发记录&quot;&gt;&lt;a href=&quot;#脚手架开发记录&quot; class=&quot;headerlink&quot; title=&quot;脚手架开发记录&quot;&gt;&lt;/a&gt;脚手架开发记录&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;input checked=&quot;&quot; disabled=&quot;&quot;</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://aruseito.github.io/categories/%E6%97%A7%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">旧博客文章</category>
+      
+      
+      <category domain="https://aruseito.github.io/tags/%E5%B7%A5%E7%A8%8B%E5%8C%96/">工程化</category>
+      
+      <category domain="https://aruseito.github.io/tags/nodejs/">nodejs</category>
+      
+      <category domain="https://aruseito.github.io/tags/%E8%84%9A%E6%89%8B%E6%9E%B6/">脚手架</category>
+      
+      
+      <comments>https://aruseito.github.io/2021/02/15/%E8%84%9A%E6%89%8B%E6%9E%B6%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>《深入浅出 React 和 Redux》 读书笔记</title>
+      <link>https://aruseito.github.io/2021/02/14/%E3%80%8A%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BA-React-%E5%92%8C-Redux%E3%80%8B-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</link>
+      <guid>https://aruseito.github.io/2021/02/14/%E3%80%8A%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BA-React-%E5%92%8C-Redux%E3%80%8B-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</guid>
+      <pubDate>Sun, 14 Feb 2021 14:18:05 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;h1 id=&quot;《深入浅出-React-和-Redux》-读书笔记&quot;&gt;&lt;a href=&quot;#《深入浅出-React-和-Redux》-读书笔记&quot; class=&quot;headerlink&quot; title=&quot;《深入浅出 React 和 Redux》 读书笔记&quot;&gt;&lt;/a&gt;《深入浅出</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://aruseito.github.io/categories/%E6%97%A7%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">旧博客文章</category>
+      
+      
+      <category domain="https://aruseito.github.io/tags/%E5%89%8D%E7%AB%AF/">前端</category>
+      
+      <category domain="https://aruseito.github.io/tags/React/">React</category>
+      
+      <category domain="https://aruseito.github.io/tags/Redux/">Redux</category>
+      
+      
+      <comments>https://aruseito.github.io/2021/02/14/%E3%80%8A%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BA-React-%E5%92%8C-Redux%E3%80%8B-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>TS学习记录</title>
+      <link>https://aruseito.github.io/2021/02/14/TS%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</link>
+      <guid>https://aruseito.github.io/2021/02/14/TS%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</guid>
+      <pubDate>Sun, 14 Feb 2021 14:16:28 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;h1 id=&quot;TS-常用点整理&quot;&gt;&lt;a href=&quot;#TS-常用点整理&quot; class=&quot;headerlink&quot; title=&quot;TS 常用点整理&quot;&gt;&lt;/a&gt;TS 常用点整理&lt;/h1&gt;&lt;p&gt;[scode type=”green”]具体实践可以看&lt;br&gt;github：&lt;a</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://aruseito.github.io/categories/%E6%97%A7%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">旧博客文章</category>
+      
+      
+      <category domain="https://aruseito.github.io/tags/%E5%89%8D%E7%AB%AF/">前端</category>
+      
+      
+      <comments>https://aruseito.github.io/2021/02/14/TS%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>深信服前端面试-校招-2019</title>
+      <link>https://aruseito.github.io/2021/02/14/%E6%B7%B1%E4%BF%A1%E6%9C%8D%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-%E6%A0%A1%E6%8B%9B-2019/</link>
+      <guid>https://aruseito.github.io/2021/02/14/%E6%B7%B1%E4%BF%A1%E6%9C%8D%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-%E6%A0%A1%E6%8B%9B-2019/</guid>
+      <pubDate>Sun, 14 Feb 2021 14:15:33 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;h2 id=&quot;GET-和-POST-的区别&quot;&gt;&lt;a href=&quot;#GET-和-POST-的区别&quot; class=&quot;headerlink&quot; title=&quot;GET 和 POST 的区别&quot;&gt;&lt;/a&gt;GET 和 POST 的区别&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;GET 和 POST</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://aruseito.github.io/categories/%E6%97%A7%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">旧博客文章</category>
+      
+      
+      <category domain="https://aruseito.github.io/tags/%E5%89%8D%E7%AB%AF/">前端</category>
+      
+      <category domain="https://aruseito.github.io/tags/%E9%9D%A2%E7%BB%8F/">面经</category>
+      
+      
+      <comments>https://aruseito.github.io/2021/02/14/%E6%B7%B1%E4%BF%A1%E6%9C%8D%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-%E6%A0%A1%E6%8B%9B-2019/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>腾讯前端面试-校招-2019</title>
+      <link>https://aruseito.github.io/2021/02/14/%E8%85%BE%E8%AE%AF%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-%E6%A0%A1%E6%8B%9B-2019/</link>
+      <guid>https://aruseito.github.io/2021/02/14/%E8%85%BE%E8%AE%AF%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-%E6%A0%A1%E6%8B%9B-2019/</guid>
+      <pubDate>Sun, 14 Feb 2021 14:13:51 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;最近在准备笔试面试，所以又搁置了博文更新计划。强迫自己更新文章，所以来一个腾讯的面经。将之前翻车的答案都更正为正确答案。&lt;/p&gt;
+&lt;h2</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://aruseito.github.io/categories/%E6%97%A7%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">旧博客文章</category>
+      
+      
+      <category domain="https://aruseito.github.io/tags/%E5%89%8D%E7%AB%AF/">前端</category>
+      
+      <category domain="https://aruseito.github.io/tags/%E9%9D%A2%E7%BB%8F/">面经</category>
+      
+      
+      <comments>https://aruseito.github.io/2021/02/14/%E8%85%BE%E8%AE%AF%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-%E6%A0%A1%E6%8B%9B-2019/#disqus_thread</comments>
+      
+    </item>
+    
+  </channel>
+</rss>
