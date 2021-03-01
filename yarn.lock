@@ -1637,9 +1637,9 @@ hexo-server@^2.0.0:
     serve-static "^1.14.1"
 
 hexo-theme-fluid@^1.8.7:
-  version "1.8.7"
-  resolved "https://registry.npm.taobao.org/hexo-theme-fluid/download/hexo-theme-fluid-1.8.7.tgz#f8dcc255ad6a94bc024f9f06765c742b6a1e3d00"
-  integrity sha1-+NzCVa1qlLwCT58Gdlx0K2oePQA=
+  version "1.8.8"
+  resolved "https://registry.npm.taobao.org/hexo-theme-fluid/download/hexo-theme-fluid-1.8.8.tgz#cd80aa8cce77efd94a9cbcbc414c56ec9bc3450f"
+  integrity sha1-zYCqjM5379lKnLy8QUxW7JvDRQ8=
 
 hexo-theme-landscape@^0.0.3:
   version "0.0.3"
