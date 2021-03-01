@@ -7,6 +7,6 @@ tags:
  - 标签2
 date: {{ date }}
 updated: {{ date }}
-index_img: /img/banner/bg2.jpg
-banner_img: /img/banner/bg2.jpg
+index_img: https://cdn.jsdelivr.net/gh/AruSeito/AruSeito.github.io@main/source/img/banner/bg2.jpg
+banner_img: https://cdn.jsdelivr.net/gh/AruSeito/AruSeito.github.io@main/source/img/banner/bg2.jpg
 ---
