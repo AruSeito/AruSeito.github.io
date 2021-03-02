@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>性能优化之传输加载优化</title>
+    <link href="/2021/03/02/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E4%BC%A0%E8%BE%93%E5%8A%A0%E8%BD%BD%E4%BC%98%E5%8C%96/"/>
+    <url>/2021/03/02/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E4%BC%A0%E8%BE%93%E5%8A%A0%E8%BD%BD%E4%BC%98%E5%8C%96/</url>
+    
+    <content type="html"><![CDATA[<h2 id="传输压缩方案-GZip"><a href="#传输压缩方案-GZip" class="headerlink" title="传输压缩方案-GZip"></a>传输压缩方案-GZip</h2><p>对传输资源进行体积压缩，可以高达90%</p><p>以下为nginx配置</p><figure class="highlight properties"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs properties"><span class="hljs-attr">gzip</span> <span class="hljs-string">on;</span><br><span class="hljs-attr">gzip_min_length</span> <span class="hljs-string">1k; # 文件最小启用压缩大小</span><br><span class="hljs-attr">gzip_comp_level</span> <span class="hljs-string">6; # 压缩级别1-9 等级越高CPU消耗越高</span><br><span class="hljs-attr">gzip_types</span> <span class="hljs-string">text/plain application/javascript application/x-javascript text/css application/xml text/xml text/javascript application/json; # 文件压缩类型，一般重点压缩文本类型，图片压缩使用gzip消耗大，收益小。</span><br><span class="hljs-attr">gzip_static</span> <span class="hljs-string">on; # 已经压缩过的资源可以直接用</span><br><span class="hljs-attr">gzip_vary</span> <span class="hljs-string">on;# 响应头添加vary属性，告知客户端启用gzip压缩</span><br><span class="hljs-attr">gzip_buffers</span> <span class="hljs-string">4 16k; #使用buffer优化压缩过程</span><br><span class="hljs-attr">gzip_http_version</span> <span class="hljs-string">1.1; #使用gzip的http版本</span><br></code></pre></div></td></tr></table></figure><h2 id="复用TCP链接-Keep-Alive"><a href="#复用TCP链接-Keep-Alive" class="headerlink" title="复用TCP链接-Keep Alive"></a>复用TCP链接-Keep Alive</h2><p>不需要重复建立链接，节省了链接创建时间。</p><p>Chrome-DevTools-NetWork-waterfall-Initial connection只出现在第一个请求，后续没有这段消耗的时间。</p><p>可以通过response Headers-connection：keep-alive查看是否开启</p><p>以下为nginx配置：</p><figure class="highlight properties"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs properties"><span class="hljs-attr">keepalive_timeout</span> <span class="hljs-string">65; # 超时时间，超过该时间不使用就会关闭。0表示不启用</span><br><span class="hljs-attr">keepalive_requests</span> <span class="hljs-string">100; # 利用该TCP链接可以发起多少个请求。</span><br></code></pre></div></td></tr></table></figure><h2 id="HTTP资源缓存"><a href="#HTTP资源缓存" class="headerlink" title="HTTP资源缓存"></a>HTTP资源缓存</h2><p>未完，待更新。。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>性能优化</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>网络传输</tag>
+      
+      <tag>nginx</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>性能优化之构建优化</title>
     <link href="/2021/03/02/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E6%9E%84%E5%BB%BA%E4%BC%98%E5%8C%96/"/>
     <url>/2021/03/02/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E6%9E%84%E5%BB%BA%E4%BC%98%E5%8C%96/</url>
