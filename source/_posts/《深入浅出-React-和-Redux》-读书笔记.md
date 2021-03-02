@@ -7,7 +7,7 @@ tags:
  - React
  - Redux
 date: 2021-02-14 22:18:05
-updated: 2021-02-15 00:34:32
+updated: 2021-02-14 22:18:05
 index_img: https://cdn.jsdelivr.net/gh/AruSeito/AruSeito.github.io@main/source/img/banner/bg2.jpg
 banner_img: https://cdn.jsdelivr.net/gh/AruSeito/AruSeito.github.io@main/source/img/banner/bg2.jpg
 

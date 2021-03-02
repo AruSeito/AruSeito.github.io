@@ -496,7 +496,7 @@ post:
       # 格式参照 ISO-8601 日期格式化
       # ISO-8601 date format
       # See: http://momentjs.cn/docs/#/parsing/string-format/
-      format: "dddd, MMMM Do YYYY, HH:mm"
+      format: "YYYY/MM/DD , dddd , HH:mm"
 
     # 字数统计
     # Word count
@@ -518,7 +518,7 @@ post:
     # 浏览量计数
     # Number of visits
     views:
-      enable: false
+      enable: true
       # 统计数据来源
       # Data Source
       # Options: busuanzi | leancloud
@@ -536,7 +536,7 @@ post:
 
     # 是否使用相对时间表示，比如："3 天前"
     # If true, it will be a relative time, such as: "3 days ago"
-    relative: false
+    relative: true
 
   # 文章右侧目录
   # Table of contents (TOC)
