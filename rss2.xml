@@ -15,7 +15,7 @@
     <atom:link href="https://aruseito.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>前端养生搬砖工</description>
-    <pubDate>Tue, 02 Mar 2021 15:06:58 GMT</pubDate>
+    <pubDate>Wed, 03 Mar 2021 08:07:49 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -41,6 +41,8 @@
       <category domain="https://aruseito.github.io/tags/%E7%BD%91%E7%BB%9C%E4%BC%A0%E8%BE%93/">网络传输</category>
       
       <category domain="https://aruseito.github.io/tags/nginx/">nginx</category>
+      
+      <category domain="https://aruseito.github.io/tags/HTTP2/">HTTP2</category>
       
       
       <comments>https://aruseito.github.io/2021/03/02/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E4%BC%A0%E8%BE%93%E5%8A%A0%E8%BD%BD%E4%BC%98%E5%8C%96/#disqus_thread</comments>
