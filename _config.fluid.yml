@@ -429,7 +429,7 @@ index:
 
       # 请求地址
       # Request url
-      url: "https://v1.hitokoto.cn/"
+      url: "https://v1.hitokoto.cn/?c=d&c=g&c=h&c=i&c=j&c=k"
 
       # 请求方法
       # Request method
@@ -536,7 +536,7 @@ post:
 
     # 是否使用相对时间表示，比如："3 天前"
     # If true, it will be a relative time, such as: "3 days ago"
-    relative: true
+    relative: false
 
   # 文章右侧目录
   # Table of contents (TOC)
