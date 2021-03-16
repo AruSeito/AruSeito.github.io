@@ -800,7 +800,7 @@ about:
   subtitle:  "关于我"
   avatar: https://cdn.jsdelivr.net/gh/AruSeito/AruSeito.github.io@main/source/img/avatar.jpeg
   name: "AruSeito"
-  introduce: "前端开发/重度游戏爱好者/待业中"
+  introduce: "前端开发/待业中"
   # 更多图标可从 https://hexo.fluid-dev.com/docs/icon/ 查找，`class` 代表图标的 css class，添加 `qrcode` 后，图标不再是链接而是悬浮二维码
   # More icons can be found from https://hexo.fluid-dev.com/docs/en/icon/  `class` is the css class of the icon. If adding `qrcode`, The icon is no longer a link, but a hovering QR code
   icons:
