@@ -1,13 +1,16 @@
 ---
-title: enzyme学习记录之Shallow,Mount,render的区别
+title: 'enzyme学习记录之Shallow,Mount,render的区别'
 categories:
   - 自动化测试
 tags:
   - 自动化测试
   - jest
   - enzyme
-index_img: https://cdn.jsdelivr.net/gh/AruSeito/AruSeito.github.io@main/source/img/banner/bg6.jpg
-banner_img: https://cdn.jsdelivr.net/gh/AruSeito/AruSeito.github.io@main/source/img/banner/bg6.jpg
+index_img: >-
+  https://cdn.jsdelivr.net/gh/AruSeito/AruSeito.github.io@main/source/img/banner/bg6.jpg
+banner_img: >-
+  https://cdn.jsdelivr.net/gh/AruSeito/AruSeito.github.io@main/source/img/banner/bg6.jpg
+abbrlink: d1e3eefb
 date: 2021-02-20 18:38:03
 updated: 2021-02-20 18:38:03
 ---

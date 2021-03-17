@@ -3,14 +3,16 @@ title: 《深入浅出 React 和 Redux》 读书笔记
 categories:
   - 旧博客文章
 tags:
- - 前端
- - React
- - Redux
+  - 前端
+  - React
+  - Redux
+index_img: >-
+  https://cdn.jsdelivr.net/gh/AruSeito/AruSeito.github.io@main/source/img/banner/bg2.jpg
+banner_img: >-
+  https://cdn.jsdelivr.net/gh/AruSeito/AruSeito.github.io@main/source/img/banner/bg2.jpg
+abbrlink: d130c1af
 date: 2021-02-14 22:18:05
 updated: 2021-02-14 22:18:05
-index_img: https://cdn.jsdelivr.net/gh/AruSeito/AruSeito.github.io@main/source/img/banner/bg2.jpg
-banner_img: https://cdn.jsdelivr.net/gh/AruSeito/AruSeito.github.io@main/source/img/banner/bg2.jpg
-
 ---
 # 《深入浅出 React 和 Redux》 读书笔记
 

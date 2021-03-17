@@ -205,7 +205,7 @@ custom_html: ''
 # 网页访问统计
 # Analysis of website visitors
 web_analytics:  # 网页访问统计
-  enable: true
+  enable: false
 
   # 百度统计的 Key，值需要获取下方链接中 `hm.js?` 后边的字符串
   # Baidu analytics, get the string behind `hm.js?`
@@ -304,6 +304,7 @@ navbar:
 # Search feature, based on hexo-generator-search. If you have installed other search plugins, please disable this feature to avoid generating redundant index files
 search:
   enable: true
+  
   # 搜索索引文件的路径，可以是相对路径或外站的绝对路径
   # Path for search index file, it can be a relative path or an absolute path
   path: /local-search.xml
@@ -368,7 +369,7 @@ footer:
   # 展示网站的 PV、UV 统计数
   # Display website PV and UV statistics
   statistics:
-    enable: true
+    enable: false
 
     # 统计数据来源，如果使用 leancloud 需要设置 `web_analytics: leancloud` 中的参数；如果使用 busuanzi 可能会有请求失败的情况
     # Data source. If use leancloud, you need to set the parameter in `web_analytics: leancloud`
@@ -429,7 +430,7 @@ index:
 
       # 请求地址
       # Request url
-      url: "https://v1.hitokoto.cn/"
+      url: "https://v1.hitokoto.cn/?c=d&c=g&c=h&c=i&c=j&c=k"
 
       # 请求方法
       # Request method
@@ -496,7 +497,7 @@ post:
       # 格式参照 ISO-8601 日期格式化
       # ISO-8601 date format
       # See: http://momentjs.cn/docs/#/parsing/string-format/
-      format: "dddd, MMMM Do YYYY, HH:mm"
+      format: "YYYY/MM/DD , dddd , HH:mm"
 
     # 字数统计
     # Word count
@@ -518,7 +519,7 @@ post:
     # 浏览量计数
     # Number of visits
     views:
-      enable: false
+      enable: true
       # 统计数据来源
       # Data Source
       # Options: busuanzi | leancloud
@@ -800,13 +801,13 @@ about:
   subtitle:  "关于我"
   avatar: https://cdn.jsdelivr.net/gh/AruSeito/AruSeito.github.io@main/source/img/avatar.jpeg
   name: "AruSeito"
-  introduce: "前端开发/重度游戏爱好者/待业中"
+  introduce: "前端开发/待业中"
   # 更多图标可从 https://hexo.fluid-dev.com/docs/icon/ 查找，`class` 代表图标的 css class，添加 `qrcode` 后，图标不再是链接而是悬浮二维码
   # More icons can be found from https://hexo.fluid-dev.com/docs/en/icon/  `class` is the css class of the icon. If adding `qrcode`, The icon is no longer a link, but a hovering QR code
   icons:
     - { class: "iconfont icon-github-fill", link: "https://github.com/AruSeito", tip: "GitHub" }
     - { class: "iconfont icon-wechat-fill", qrcode: "https://cdn.jsdelivr.net/gh/AruSeito/AruSeito.github.io@main/source/img/wxqrcode.jpg" }
-
+    - { class: "iconfont icon-rss-fill", link: "https://aruseito.github.io/rss2.xml", tip: "RSS"}
 
 #---------------------------
 # 自定义页

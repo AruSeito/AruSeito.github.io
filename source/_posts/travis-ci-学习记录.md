@@ -5,8 +5,11 @@ categories:
 tags:
   - 工程化
   - 持续化集成
-index_img: https://cdn.jsdelivr.net/gh/AruSeito/AruSeito.github.io@main/source/img/banner/bg7.jpg
-banner_img: https://cdn.jsdelivr.net/gh/AruSeito/AruSeito.github.io@main/source/img/banner/bg7.jpg
+index_img: >-
+  https://cdn.jsdelivr.net/gh/AruSeito/AruSeito.github.io@main/source/img/banner/bg7.jpg
+banner_img: >-
+  https://cdn.jsdelivr.net/gh/AruSeito/AruSeito.github.io@main/source/img/banner/bg7.jpg
+abbrlink: 1dae22d5
 date: 2021-02-15 22:06:58
 updated: 2021-02-15 22:06:58
 ---

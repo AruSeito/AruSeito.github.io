@@ -5,8 +5,11 @@ categories:
 tags:
   - 翻译
   - 最佳实践
-index_img: https://cdn.jsdelivr.net/gh/AruSeito/AruSeito.github.io@main/source/img/banner/bg11.jpg
-banner_img: https://cdn.jsdelivr.net/gh/AruSeito/AruSeito.github.io@main/source/img/banner/bg11.jpg
+index_img: >-
+  https://cdn.jsdelivr.net/gh/AruSeito/AruSeito.github.io@main/source/img/banner/bg11.jpg
+banner_img: >-
+  https://cdn.jsdelivr.net/gh/AruSeito/AruSeito.github.io@main/source/img/banner/bg11.jpg
+abbrlink: 9fd9559e
 date: 2021-03-12 13:56:09
 ---
 
