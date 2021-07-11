@@ -15,8 +15,33 @@
     <atom:link href="https://aruseito.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>前端养生搬砖工</description>
-    <pubDate>Mon, 05 Jul 2021 12:02:34 GMT</pubDate>
+    <pubDate>Sun, 11 Jul 2021 16:29:39 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>(随手记录)-一些关于BOM的零散知识</title>
+      <link>https://aruseito.github.io/article/668e3aae/</link>
+      <guid>https://aruseito.github.io/article/668e3aae/</guid>
+      <pubDate>Sun, 11 Jul 2021 16:29:39 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;h2 id=&quot;用-setTimeout-实现一个-setInterval&quot;&gt;&lt;a href=&quot;#用-setTimeout-实现一个-setInterval&quot; class=&quot;headerlink&quot; title=&quot;用 setTimeout 实现一个</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://aruseito.github.io/categories/%E9%9A%8F%E6%89%8B%E8%AE%B0%E5%BD%95/">随手记录</category>
+      
+      
+      
+      <comments>https://aruseito.github.io/article/668e3aae/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>手写一个Promise/A+</title>
@@ -285,39 +310,6 @@
       
       
       <comments>https://aruseito.github.io/article/27abae9/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>性能优化之渲染优化</title>
-      <link>https://aruseito.github.io/article/41870d4/</link>
-      <guid>https://aruseito.github.io/article/41870d4/</guid>
-      <pubDate>Fri, 26 Feb 2021 14:10:21 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;h2 id=&quot;浏览器渲染过程（对应面试题：从用户输入url到显示都发生了什么）&quot;&gt;&lt;a href=&quot;#浏览器渲染过程（对应面试题：从用户输入url到显示都发生了什么）&quot; class=&quot;headerlink&quot;</description>
-          
-        
-      
-      
-      
-      
-      <category domain="https://aruseito.github.io/categories/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">性能优化</category>
-      
-      
-      <category domain="https://aruseito.github.io/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86/">浏览器渲染原理</category>
-      
-      <category domain="https://aruseito.github.io/tags/%E9%87%8D%E6%8E%92%E5%92%8C%E9%87%8D%E7%BB%98/">重排和重绘</category>
-      
-      <category domain="https://aruseito.github.io/tags/%E9%A2%84%E6%B8%B2%E6%9F%93/">预渲染</category>
-      
-      <category domain="https://aruseito.github.io/tags/%E9%A6%96%E5%B1%8F%E6%B8%B2%E6%9F%93/">首屏渲染</category>
-      
-      
-      <comments>https://aruseito.github.io/article/41870d4/#disqus_thread</comments>
       
     </item>
     
