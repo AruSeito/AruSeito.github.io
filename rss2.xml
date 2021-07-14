@@ -15,8 +15,36 @@
     <atom:link href="https://aruseito.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>前端养生搬砖工</description>
-    <pubDate>Sun, 11 Jul 2021 16:29:39 GMT</pubDate>
+    <pubDate>Wed, 14 Jul 2021 14:56:58 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>(随手记录)-GIT解决合并错分支</title>
+      <link>https://aruseito.github.io/article/afdedcbf/</link>
+      <guid>https://aruseito.github.io/article/afdedcbf/</guid>
+      <pubDate>Wed, 14 Jul 2021 14:56:58 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;今天在进行大版本升级完，将版本分支归档到 main 分支的时候，发现 commits 特别多，一共有 2000 多条。&lt;/p&gt;
+&lt;p&gt;感觉不太对劲，第一反应就是有人把 dev</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://aruseito.github.io/categories/%E9%9A%8F%E6%89%8B%E8%AE%B0%E5%BD%95/">随手记录</category>
+      
+      
+      <category domain="https://aruseito.github.io/tags/GIT/">GIT</category>
+      
+      
+      <comments>https://aruseito.github.io/article/afdedcbf/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>(随手记录)-一些关于BOM的零散知识</title>
@@ -279,37 +307,6 @@
       
       
       <comments>https://aruseito.github.io/article/c32e6a1d/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>性能优化之代码优化</title>
-      <link>https://aruseito.github.io/article/27abae9/</link>
-      <guid>https://aruseito.github.io/article/27abae9/</guid>
-      <pubDate>Sun, 28 Feb 2021 10:28:13 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;h2 id=&quot;JS开销和如何缩短解析时间&quot;&gt;&lt;a href=&quot;#JS开销和如何缩短解析时间&quot; class=&quot;headerlink&quot; title=&quot;JS开销和如何缩短解析时间&quot;&gt;&lt;/a&gt;JS开销和如何缩短解析时间&lt;/h2&gt;&lt;h3 id=&quot;JS开销&quot;&gt;&lt;a</description>
-          
-        
-      
-      
-      
-      
-      <category domain="https://aruseito.github.io/categories/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">性能优化</category>
-      
-      
-      <category domain="https://aruseito.github.io/tags/JavaScript/">JavaScript</category>
-      
-      <category domain="https://aruseito.github.io/tags/HTML/">HTML</category>
-      
-      <category domain="https://aruseito.github.io/tags/CSS/">CSS</category>
-      
-      
-      <comments>https://aruseito.github.io/article/27abae9/#disqus_thread</comments>
       
     </item>
     
