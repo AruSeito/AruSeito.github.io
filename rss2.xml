@@ -15,8 +15,40 @@
     <atom:link href="https://aruseito.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>前端养生搬砖工</description>
-    <pubDate>Wed, 14 Jul 2021 14:56:58 GMT</pubDate>
+    <pubDate>Wed, 21 Jul 2021 15:29:56 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>在React中因浅拷贝引发的BUG</title>
+      <link>https://aruseito.github.io/article/db2c0d0e/</link>
+      <guid>https://aruseito.github.io/article/db2c0d0e/</guid>
+      <pubDate>Wed, 21 Jul 2021 15:29:56 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;今天在开发过程中遇到一个 BUG：useEffect 没有按照想象中的执行。所以有了本篇文章。&lt;/p&gt;
+&lt;p&gt;需求如下：有个列表，列表项中的&lt;code&gt;content&lt;/code&gt;字段如果内容大于 3</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://aruseito.github.io/categories/React/">React</category>
+      
+      
+      <category domain="https://aruseito.github.io/tags/%E6%B7%B1%E6%8B%B7%E8%B4%9D-%E6%B5%85%E6%8B%B7%E8%B4%9D/">深拷贝/浅拷贝</category>
+      
+      <category domain="https://aruseito.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</category>
+      
+      <category domain="https://aruseito.github.io/tags/React-Memo/">React.Memo</category>
+      
+      
+      <comments>https://aruseito.github.io/article/db2c0d0e/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>(随手记录)-GIT解决合并错分支</title>
@@ -274,39 +306,6 @@
       
       
       <comments>https://aruseito.github.io/article/1148eb19/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>性能优化之资源优化</title>
-      <link>https://aruseito.github.io/article/c32e6a1d/</link>
-      <guid>https://aruseito.github.io/article/c32e6a1d/</guid>
-      <pubDate>Tue, 02 Mar 2021 03:01:38 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;h2 id=&quot;资源的压缩与合并&quot;&gt;&lt;a href=&quot;#资源的压缩与合并&quot; class=&quot;headerlink&quot; title=&quot;资源的压缩与合并&quot;&gt;&lt;/a&gt;资源的压缩与合并&lt;/h2&gt;&lt;h3 id=&quot;为什么要压缩-amp-合并&quot;&gt;&lt;a href=&quot;#为什么要压缩-amp-合并&quot;</description>
-          
-        
-      
-      
-      
-      
-      <category domain="https://aruseito.github.io/categories/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">性能优化</category>
-      
-      
-      <category domain="https://aruseito.github.io/tags/%E8%B5%84%E6%BA%90%E4%BC%98%E5%8C%96/">资源优化</category>
-      
-      <category domain="https://aruseito.github.io/tags/%E8%B5%84%E6%BA%90%E7%9A%84%E5%8E%8B%E7%BC%A9%E4%B8%8E%E5%90%88%E5%B9%B6/">资源的压缩与合并</category>
-      
-      <category domain="https://aruseito.github.io/tags/%E5%9B%BE%E7%89%87%E4%BC%98%E5%8C%96/">图片优化</category>
-      
-      <category domain="https://aruseito.github.io/tags/%E5%AD%97%E4%BD%93%E4%BC%98%E5%8C%96/">字体优化</category>
-      
-      
-      <comments>https://aruseito.github.io/article/c32e6a1d/#disqus_thread</comments>
       
     </item>
     
