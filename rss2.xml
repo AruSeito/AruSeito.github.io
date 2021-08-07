@@ -15,8 +15,37 @@
     <atom:link href="https://aruseito.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>前端养生搬砖工</description>
-    <pubDate>Wed, 21 Jul 2021 15:29:56 GMT</pubDate>
+    <pubDate>Sat, 07 Aug 2021 09:47:35 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>《自顶向下学 React 源码》学习笔记</title>
+      <link>https://aruseito.github.io/article/3f8812bd/</link>
+      <guid>https://aruseito.github.io/article/3f8812bd/</guid>
+      <pubDate>Sat, 07 Aug 2021 09:47:35 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;h2 id=&quot;设计理念&quot;&gt;&lt;a href=&quot;#设计理念&quot; class=&quot;headerlink&quot; title=&quot;设计理念&quot;&gt;&lt;/a&gt;设计理念&lt;/h2&gt;&lt;p&gt;&lt;a</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://aruseito.github.io/categories/%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/">源码学习</category>
+      
+      
+      <category domain="https://aruseito.github.io/tags/React/">React</category>
+      
+      <category domain="https://aruseito.github.io/tags/%E6%BA%90%E7%A0%81/">源码</category>
+      
+      
+      <comments>https://aruseito.github.io/article/3f8812bd/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>在React中因浅拷贝引发的BUG</title>
@@ -277,35 +306,6 @@
       
       
       <comments>https://aruseito.github.io/article/adf14e0a/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>性能优化之构建优化</title>
-      <link>https://aruseito.github.io/article/1148eb19/</link>
-      <guid>https://aruseito.github.io/article/1148eb19/</guid>
-      <pubDate>Tue, 02 Mar 2021 06:46:07 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;h2 id=&quot;Tree-shaking&quot;&gt;&lt;a href=&quot;#Tree-shaking&quot; class=&quot;headerlink&quot; title=&quot;Tree-shaking&quot;&gt;&lt;/a&gt;&lt;a</description>
-          
-        
-      
-      
-      
-      
-      <category domain="https://aruseito.github.io/categories/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">性能优化</category>
-      
-      
-      <category domain="https://aruseito.github.io/tags/webpack/">webpack</category>
-      
-      <category domain="https://aruseito.github.io/tags/babel/">babel</category>
-      
-      
-      <comments>https://aruseito.github.io/article/1148eb19/#disqus_thread</comments>
       
     </item>
     
