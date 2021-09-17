@@ -4,6 +4,58 @@
   
   
   <entry>
+    <title>记一个有意思的BUG</title>
+    <link href="/article/a835eac3/"/>
+    <url>/article/a835eac3/</url>
+    
+    <content type="html"><![CDATA[<p>更新中</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>分类</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>标签1</tag>
+      
+      <tag>标签2</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>手撕一个eventBus</title>
+    <link href="/article/27b53d37/"/>
+    <url>/article/27b53d37/</url>
+    
+    <content type="html"><![CDATA[<p>首先需要知道 eventBus 中的方法都有哪些。按照方法进行基础框架的搭建</p><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">eventBus</span> </span>&#123;<br>  <span class="hljs-comment">// 初始化</span><br>  <span class="hljs-function"><span class="hljs-title">constructor</span>(<span class="hljs-params"></span>)</span> &#123;&#125;<br><br>  <span class="hljs-comment">// 触发事件</span><br>  <span class="hljs-function"><span class="hljs-title">emit</span>(<span class="hljs-params">eventName, ...args</span>)</span> &#123;&#125;<br><br>  <span class="hljs-comment">// 注册事件</span><br>  <span class="hljs-function"><span class="hljs-title">on</span>(<span class="hljs-params">eventName, cb</span>)</span> &#123;&#125;<br><br>  <span class="hljs-comment">// 注册事件但只触发一次</span><br>  <span class="hljs-function"><span class="hljs-title">onOnce</span>(<span class="hljs-params">eventName, cb</span>)</span> &#123;&#125;<br><br>  <span class="hljs-comment">// 取消事件</span><br>  <span class="hljs-function"><span class="hljs-title">off</span>(<span class="hljs-params">eventName</span>)</span> &#123;&#125;<br>&#125;<br></code></pre></div></td></tr></table></figure><p>new 的时候对 event 进行初始化。然后分别填入逻辑</p><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">eventBus</span> </span>&#123;<br>  <span class="hljs-function"><span class="hljs-title">constructor</span>(<span class="hljs-params"></span>)</span> &#123;<br>    <span class="hljs-built_in">this</span>.events = &#123;&#125;;<br>  &#125;<br><br>  <span class="hljs-function"><span class="hljs-title">emit</span>(<span class="hljs-params">eventName, ...args</span>)</span> &#123;<br>    <span class="hljs-keyword">const</span> cb = <span class="hljs-built_in">this</span>.events[eventName];<br>    <span class="hljs-keyword">if</span> (!cb) &#123;<br>      <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">&quot;没这个事件啊&quot;</span>);<br>    &#125;<br><br>    cb.forEach(<span class="hljs-function">(<span class="hljs-params">cb</span>) =&gt;</span> cb.apply(<span class="hljs-built_in">this</span>, args));<br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>;<br>  &#125;<br><br>  <span class="hljs-function"><span class="hljs-title">on</span>(<span class="hljs-params">eventName, cb</span>)</span> &#123;<br>    <span class="hljs-keyword">if</span> (!<span class="hljs-built_in">this</span>.events[eventName]) &#123;<br>      <span class="hljs-built_in">this</span>.events[eventName] = [];<br>    &#125;<br>    <span class="hljs-built_in">this</span>.events[eventName].push(cb);<br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>;<br>  &#125;<br><br>  <span class="hljs-function"><span class="hljs-title">onOnce</span>(<span class="hljs-params">eventName, cb</span>)</span> &#123;<br>    <span class="hljs-keyword">const</span> func = <span class="hljs-function">(<span class="hljs-params">...args</span>) =&gt;</span> &#123;<br>      <span class="hljs-built_in">this</span>.off(eventName, func);<br>      cb.apply(<span class="hljs-built_in">this</span>, args);<br>    &#125;;<br>    <span class="hljs-built_in">this</span>.on(eventName, func);<br>  &#125;<br><br>  <span class="hljs-function"><span class="hljs-title">off</span>(<span class="hljs-params">eventName, cb</span>)</span> &#123;<br>    <span class="hljs-keyword">if</span> (!cb) &#123;<br>      <span class="hljs-built_in">this</span>.events[eventName] = <span class="hljs-literal">null</span>;<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>      <span class="hljs-built_in">this</span>.events[event] = <span class="hljs-built_in">this</span>.events[event].filter(<span class="hljs-function">(<span class="hljs-params">item</span>) =&gt;</span> item !== cb);<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>;<br>  &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>手撕源码</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>eventBus</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>近期面试复盘</title>
     <link href="/article/c0cc8344/"/>
     <url>/article/c0cc8344/</url>
@@ -141,6 +193,8 @@
     <categories>
       
       <category>源码</category>
+      
+      <category>手撕源码</category>
       
     </categories>
     

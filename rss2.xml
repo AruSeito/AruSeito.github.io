@@ -15,8 +15,66 @@
     <atom:link href="https://aruseito.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>前端养生搬砖工</description>
-    <pubDate>Mon, 09 Aug 2021 15:41:22 GMT</pubDate>
+    <pubDate>Fri, 17 Sep 2021 14:21:35 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>记一个有意思的BUG</title>
+      <link>https://aruseito.github.io/article/a835eac3/</link>
+      <guid>https://aruseito.github.io/article/a835eac3/</guid>
+      <pubDate>Fri, 17 Sep 2021 14:21:35 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;更新中&lt;/p&gt;
+</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://aruseito.github.io/categories/%E5%88%86%E7%B1%BB/">分类</category>
+      
+      
+      <category domain="https://aruseito.github.io/tags/%E6%A0%87%E7%AD%BE1/">标签1</category>
+      
+      <category domain="https://aruseito.github.io/tags/%E6%A0%87%E7%AD%BE2/">标签2</category>
+      
+      
+      <comments>https://aruseito.github.io/article/a835eac3/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>手撕一个eventBus</title>
+      <link>https://aruseito.github.io/article/27b53d37/</link>
+      <guid>https://aruseito.github.io/article/27b53d37/</guid>
+      <pubDate>Sun, 29 Aug 2021 14:53:16 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;首先需要知道 eventBus 中的方法都有哪些。按照方法进行基础框架的搭建&lt;/p&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter hljs&quot;&gt;&lt;div class=&quot;hljs</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://aruseito.github.io/categories/%E6%89%8B%E6%92%95%E6%BA%90%E7%A0%81/">手撕源码</category>
+      
+      
+      <category domain="https://aruseito.github.io/tags/eventBus/">eventBus</category>
+      
+      
+      <comments>https://aruseito.github.io/article/27b53d37/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>近期面试复盘</title>
@@ -185,6 +243,8 @@
       
       <category domain="https://aruseito.github.io/categories/%E6%BA%90%E7%A0%81/">源码</category>
       
+      <category domain="https://aruseito.github.io/categories/%E6%BA%90%E7%A0%81/%E6%89%8B%E6%92%95%E6%BA%90%E7%A0%81/">手撕源码</category>
+      
       
       <category domain="https://aruseito.github.io/tags/Promise/">Promise</category>
       
@@ -250,64 +310,6 @@
       
       
       <comments>https://aruseito.github.io/article/57ff1b88/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Redux的最佳实践</title>
-      <link>https://aruseito.github.io/article/9fd9559e/</link>
-      <guid>https://aruseito.github.io/article/9fd9559e/</guid>
-      <pubDate>Fri, 12 Mar 2021 05:56:09 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;p&gt;本版本为个人机器翻译+渣渣翻译+个人理解写成&lt;br&gt;原版见&lt;a</description>
-          
-        
-      
-      
-      
-      
-      <category domain="https://aruseito.github.io/categories/Redux/">Redux</category>
-      
-      
-      <category domain="https://aruseito.github.io/tags/%E7%BF%BB%E8%AF%91/">翻译</category>
-      
-      <category domain="https://aruseito.github.io/tags/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/">最佳实践</category>
-      
-      
-      <comments>https://aruseito.github.io/article/9fd9559e/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>社招-字节跳动前端面试</title>
-      <link>https://aruseito.github.io/article/b0eba624/</link>
-      <guid>https://aruseito.github.io/article/b0eba624/</guid>
-      <pubDate>Wed, 10 Mar 2021 09:29:27 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</description>
-          
-        
-      
-      
-      
-      
-      <category domain="https://aruseito.github.io/categories/%E9%9D%A2%E7%BB%8F/">面经</category>
-      
-      
-      <category domain="https://aruseito.github.io/tags/%E9%9D%A2%E7%BB%8F/">面经</category>
-      
-      <category domain="https://aruseito.github.io/tags/%E5%AD%97%E8%8A%82%E8%B7%B3%E5%8A%A8/">字节跳动</category>
-      
-      
-      <comments>https://aruseito.github.io/article/b0eba624/#disqus_thread</comments>
       
     </item>
     
