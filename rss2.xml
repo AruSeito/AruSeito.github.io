@@ -15,8 +15,37 @@
     <atom:link href="https://aruseito.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>前端养生搬砖工</description>
-    <pubDate>Fri, 17 Sep 2021 14:21:35 GMT</pubDate>
+    <pubDate>Fri, 17 Sep 2021 14:23:11 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>记一次性能调优</title>
+      <link>https://aruseito.github.io/article/86b01b74/</link>
+      <guid>https://aruseito.github.io/article/86b01b74/</guid>
+      <pubDate>Fri, 17 Sep 2021 14:23:11 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;待更新，redux</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://aruseito.github.io/categories/%E5%88%86%E7%B1%BB/">分类</category>
+      
+      
+      <category domain="https://aruseito.github.io/tags/%E6%A0%87%E7%AD%BE1/">标签1</category>
+      
+      <category domain="https://aruseito.github.io/tags/%E6%A0%87%E7%AD%BE2/">标签2</category>
+      
+      
+      <comments>https://aruseito.github.io/article/86b01b74/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>记一个有意思的BUG</title>
@@ -281,35 +310,6 @@
       
       
       <comments>https://aruseito.github.io/article/5adf6b08/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>开着飞机修引擎---热更新</title>
-      <link>https://aruseito.github.io/article/57ff1b88/</link>
-      <guid>https://aruseito.github.io/article/57ff1b88/</guid>
-      <pubDate>Tue, 16 Mar 2021 07:17:54 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;p&gt;在自己刚开始学习前端的时候，每次修改个新样式都要手动刷新一下页面。随着自己对前端的了解，开始使用了 live reload 插件进行代替，每次更改文件后，浏览器都会代替人工来刷新页面。随着后面的学习 React，发现使用 CRA</description>
-          
-        
-      
-      
-      
-      
-      <category domain="https://aruseito.github.io/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/">前端工程化</category>
-      
-      
-      <category domain="https://aruseito.github.io/tags/webpack/">webpack</category>
-      
-      <category domain="https://aruseito.github.io/tags/%E7%83%AD%E6%9B%B4%E6%96%B0/">热更新</category>
-      
-      
-      <comments>https://aruseito.github.io/article/57ff1b88/#disqus_thread</comments>
       
     </item>
     
