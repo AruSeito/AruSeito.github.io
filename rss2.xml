@@ -48,7 +48,7 @@
     </item>
     
     <item>
-      <title>记一个有意思的BUG</title>
+      <title>emoji在Chrome显示问题</title>
       <link>https://aruseito.github.io/article/a835eac3/</link>
       <guid>https://aruseito.github.io/article/a835eac3/</guid>
       <pubDate>Fri, 17 Sep 2021 14:21:35 GMT</pubDate>
@@ -57,20 +57,21 @@
         
           
           
-      <description>&lt;p&gt;更新中&lt;/p&gt;
-</description>
+      <description>&lt;p&gt;前几天接到一个莫名其妙的需求，说文本中有 emoji，然后文字和 emoji 粘连了，需要分开。&lt;/p&gt;
+&lt;p&gt;但是我打开看了一下产品说的位置，发现并没有粘连。&lt;/p&gt;
+&lt;p&gt;&lt;img</description>
           
         
       
       
       
       
-      <category domain="https://aruseito.github.io/categories/%E5%88%86%E7%B1%BB/">分类</category>
+      <category domain="https://aruseito.github.io/categories/%E5%85%B6%E4%BB%96/">其他</category>
       
       
-      <category domain="https://aruseito.github.io/tags/%E6%A0%87%E7%AD%BE1/">标签1</category>
+      <category domain="https://aruseito.github.io/tags/emoji/">emoji</category>
       
-      <category domain="https://aruseito.github.io/tags/%E6%A0%87%E7%AD%BE2/">标签2</category>
+      <category domain="https://aruseito.github.io/tags/Chrome/">Chrome</category>
       
       
       <comments>https://aruseito.github.io/article/a835eac3/#disqus_thread</comments>
