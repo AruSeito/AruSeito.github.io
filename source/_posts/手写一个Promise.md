@@ -2,6 +2,7 @@
 title: 手写一个Promise/A+
 categories:
   - 源码
+  - 手撕源码
 tags:
   - Promise
   - 手撕代码
