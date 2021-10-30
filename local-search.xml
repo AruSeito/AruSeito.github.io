@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>缓存背锅？</title>
+    <link href="/article/85e77354/"/>
+    <url>/article/85e77354/</url>
+    
+    <content type="html"><![CDATA[<h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>我们国内站有做中国传统节假日的提醒，因为中国传统节假日不太方便计算，所以每年都要在对象存储桶里更新对应的文件。</p><p>大前天接到工单反馈说我们没有 2022 年的日历提醒，然后运维同学就在对应文件进行了文件的更新。</p><p>过了一会儿之后测试同学跟我说：web 这面没办法拉取到最新的文件，但是直接访问请求可以拿到。还给我截图看了一下请求头，说我没按照当时的方案做：请求的时候加上<code>if-modified-since</code>这个。</p><p>我寻思着这些东西现在浏览器不都是会自动加上吗？然后自己去线上看了一下，也拉到了最新的节日信息，无法复现。然后用了另外几个同学的电脑（一定会有缓存，但是最近两天没打开过线上的）看了一下也没问题。</p><p>一脸懵逼，只能先甩锅再说：当时做这个功能的时候不是测试过缓存吗？当时都是正常的，最近也没需求改动这个，肯定没问题啊。</p><h2 id="追因"><a href="#追因" class="headerlink" title="追因"></a>追因</h2><p>先清楚自己的缓存，然后在测试环境看一下请求，没什么大问题。多了几个特殊字段引起了我的注意：<code>x-swift-cachetime</code>和<code>x-swift-savetime</code>。</p><p>查看了一下阿里云的说明：</p><ul><li><code>x-swift-savetime</code>:代表开始在 cdn 上缓存的时间</li><li><code>x-swift-cachetime</code>:cdn 默认缓存时间,超过了这个时间，该缓存就丢弃了，需要重新回源获取。</li><li><code>age</code>:代表在 cdn 上已经缓存的时间</li></ul><p>一个大胆的想法在我脑海中成立：</p><p>运维在更新好文件之后，并没有按照以往的强制刷新 cdn 缓存，然后因为我们的线上环境<code>cachetime</code>是 3600s，所以测试同学可能是在 3600s 内在 web 页面进行了测试，发现没有更新，然后去直接访问文件链接，但是这时候已经过了 3600s，所以一面拿到的是老的，一面拿到的是新的。</p><p>然后开始实践</p><h2 id="复盘"><a href="#复盘" class="headerlink" title="复盘"></a>复盘</h2><p>首先在测试环境看了一下<code>cachetime</code>为 13，那我在 13s 内和 13s 后分别请求一次这个文件看看什么效果。</p><p>13s 内请求发现：chromeDevTools 显示状态代码 200，来自磁盘缓存。</p><p><img src="https://cdn.jsdelivr.net/gh/AruSeito/AruSeito.github.io@main/source/img/20211030/13%E5%86%85%E8%AF%B7%E6%B1%82.png" alt="13s内的请求"></p><p>13 后请求发现：状态码还是 200，请求头内带上了<code>if-modified-since</code>和<code>if-none-match</code>，响应 tab 里提示此请求没有可用的响应数据</p><p><img src="https://cdn.jsdelivr.net/gh/AruSeito/AruSeito.github.io@main/source/img/20211030/13%E5%A4%96%E8%AF%B7%E6%B1%82.png" alt="13s后的请求"></p><p>ok，破案。和我想的一样。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>随手记录</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>协商缓存</tag>
+      
+      <tag>强制缓存</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>虚拟列表的实现</title>
     <link href="/article/66276cbc/"/>
     <url>/article/66276cbc/</url>
