@@ -15,8 +15,35 @@
     <atom:link href="https://aruseito.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>前端养生搬砖工</description>
-    <pubDate>Sat, 30 Oct 2021 08:44:24 GMT</pubDate>
+    <pubDate>Mon, 01 Nov 2021 12:32:05 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>小试PWA</title>
+      <link>https://aruseito.github.io/article/246388ad/</link>
+      <guid>https://aruseito.github.io/article/246388ad/</guid>
+      <pubDate>Mon, 01 Nov 2021 12:32:05 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;h2 id=&quot;文件结构&quot;&gt;&lt;a href=&quot;#文件结构&quot; class=&quot;headerlink&quot; title=&quot;文件结构&quot;&gt;&lt;/a&gt;文件结构&lt;/h2&gt;&lt;p&gt;首先 PWA 的与正常的 web 都是一样的，只是在 html</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://aruseito.github.io/categories/%E5%89%8D%E6%AE%B5%E5%B7%A5%E7%A8%8B%E5%8C%96/">前段工程化</category>
+      
+      
+      <category domain="https://aruseito.github.io/tags/PWA/">PWA</category>
+      
+      
+      <comments>https://aruseito.github.io/article/246388ad/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>缓存背锅？</title>
@@ -280,31 +307,6 @@
       
       
       <comments>https://aruseito.github.io/article/afdedcbf/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>(随手记录)-一些关于BOM的零散知识</title>
-      <link>https://aruseito.github.io/article/668e3aae/</link>
-      <guid>https://aruseito.github.io/article/668e3aae/</guid>
-      <pubDate>Sun, 11 Jul 2021 16:29:39 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;h2 id=&quot;用-setTimeout-实现一个-setInterval&quot;&gt;&lt;a href=&quot;#用-setTimeout-实现一个-setInterval&quot; class=&quot;headerlink&quot; title=&quot;用 setTimeout 实现一个</description>
-          
-        
-      
-      
-      
-      
-      <category domain="https://aruseito.github.io/categories/%E9%9A%8F%E6%89%8B%E8%AE%B0%E5%BD%95/">随手记录</category>
-      
-      
-      
-      <comments>https://aruseito.github.io/article/668e3aae/#disqus_thread</comments>
       
     </item>
     
