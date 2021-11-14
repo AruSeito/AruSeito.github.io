@@ -1,7 +1,7 @@
 ---
 title: 小试PWA
 categories:
-  - 前段工程化
+  - 前端工程化
 tags:
   - PWA
 keywords:
