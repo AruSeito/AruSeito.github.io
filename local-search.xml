@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>hybrid原理解析</title>
+    <link href="/article/e4052a99/"/>
+    <url>/article/e4052a99/</url>
+    
+    <content type="html"><![CDATA[<h2 id="hybrid-是什么？"><a href="#hybrid-是什么？" class="headerlink" title="hybrid 是什么？"></a>hybrid 是什么？</h2><p>hybrid 其实可以简单粗暴的理解为 一个原生应用内调用 webview，然后 h5 嵌套在 webview 中，并且 h5 可以与 native 应用进行交互。一个非常好的例子就是微信小程序/微信 H5 这种，在使用的时候通过调用 jsbridge 的方法，来调用微信原生的一些操作，比如分享到 xxx 这种。</p><p>所以 hybrid 开发重点应该是中间这个 jsbridge。</p><h2 id="jsbridge-通信的方式"><a href="#jsbridge-通信的方式" class="headerlink" title="jsbridge 通信的方式"></a>jsbridge 通信的方式</h2><ol><li><p>URL Schema：客户端通过拦击 webview 请求来完成。</p></li><li><p>native 向 webview 中的 js 执行环境,注⼊ API, 以此来完成通讯。</p></li></ol><h3 id="URL-Schema"><a href="#URL-Schema" class="headerlink" title="URL Schema"></a>URL Schema</h3><ol><li>原理</li></ol><p>在 webview 中发送的请求都会被客户端监听到捕获到。</p><ol start="2"><li><p>定义自己的私有协议</p></li><li><p>请求的发送</p></li></ol><p>webview 中请求的发送，一般用 iframe 方式。</p><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">const</span> doc = <span class="hljs-built_in">window</span>.document;<br><span class="hljs-keyword">const</span> body = doc.body;<br><span class="hljs-keyword">const</span> iframe = doc.createElement(<span class="hljs-string">&quot;iframe&quot;</span>);<br><br>iframe.style.display = <span class="hljs-string">&quot;none&quot;</span>;<br>iframe.src = <span class="hljs-string">&quot;jsbridge://openCamera&quot;</span>;<br><br>body.append(iframe);<br><br><span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>  <span class="hljs-comment">// 采用回掉的方式更合理，发送请求成功后，客户端返回给我们，然后我们收到消息去移除。</span><br>  body.removeChild(iframe);<br>&#125;, <span class="hljs-number">200</span>);<br></code></pre></div></td></tr></table></figure><p>这种会有个安全性问题。所以客户端一般情况下会设置个域名白名单，只有发出的请求是从白名单内发的才可以。</p><ol start="4"><li>客户端拦截协议请求。</li></ol><p>具体操作不太清楚，客户端需要处理的事情了。</p><p>拦截到请求之后对<code>iframe.scr</code>进行一个分解，提取方法名，参数等。</p><ol start="5"><li>请求处理完成后的回调</li></ol><ul><li>H5 调用特定方法的时候，需要通过 webviewApi 的名称+参数作为唯一标识，注册事件</li></ul><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">const</span> handlerId = <span class="hljs-built_in">Symbol</span>();<br><span class="hljs-keyword">const</span> eventName = <span class="hljs-string">`setLeftButton_<span class="hljs-subst">$&#123;handlerId&#125;</span>`</span>;<br><br><span class="hljs-keyword">const</span> event = <span class="hljs-keyword">new</span> Event(eventName);<br><br><span class="hljs-built_in">window</span>.addEventListener(eventName, <span class="hljs-function">(<span class="hljs-params">res</span>) =&gt;</span> &#123;<br>  <span class="hljs-comment">// 做一些业务逻辑</span><br>&#125;);<br><br><span class="hljs-comment">// 然后用上面封装好的iframe那个方法给他发送出去。</span><br></code></pre></div></td></tr></table></figure><ul><li>客户端在接收到请求的时候，完成自己的处理后，dispatchEvent，携带回调的数据处罚自定义事件</li></ul><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">event.data = &#123; <span class="hljs-attr">error</span>: <span class="hljs-number">0</span> &#125;;<br><br><span class="hljs-built_in">window</span>.dispatchEvent(event);<br></code></pre></div></td></tr></table></figure><p>真正与客户端交互的逻辑靠我自己不太好搞，还得搞一些原生方法，所以我们可以用 websocket 来模拟一下。</p><p>在 node 层起个 staticServer+websocket，然后在 html 里触发相应的 native 方法的时候就发送个 ws 消息，然后 node 层就相当于 native 层，再处理收到消息后的逻辑，然后再把消息发送回去。<a href="https://github.com/AruSeito/daily-practice/blob/main/others/jsBridge/index.js">模拟源码</a></p><h3 id="注入-API"><a href="#注入-API" class="headerlink" title="注入 API"></a>注入 API</h3><p>URL Schema 缺点：如果使用 iframe 这样发出请求，url 过长的话会造成 url 被截断。</p><p>注入 API 缺点：</p><p>注入时机不确定，需要实现注入失败后重试的机制，保证注入的成功率，同时 JavaScript 端在调用接口时，需要优先判断 JSBridge 是否已经注入成功。</p><p>如果方法特别多的话，window 上挂超多方法，内存泄露问题很严重。</p><ol><li>向 native 传递信息</li></ol><p>native 会在 window 上挂载一个对象，然后直接 window.方法调用就可以传递消息了。</p><p>一般情况下会对参数进行编码，比如转换为 base64</p><ol start="2"><li>准备接收 native 的回调</li></ol><p>在 window 上去声明接收回调的 api</p><ol start="3"><li>native 调用回调函数</li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>原理解析</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>hybrid</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>再探webpack-dev-server</title>
     <link href="/article/d836125a/"/>
     <url>/article/d836125a/</url>
@@ -38,7 +63,7 @@
     
     <categories>
       
-      <category>前段工程化</category>
+      <category>前端工程化</category>
       
     </categories>
     

@@ -15,8 +15,35 @@
     <atom:link href="https://aruseito.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>前端养生搬砖工</description>
-    <pubDate>Mon, 08 Nov 2021 13:55:36 GMT</pubDate>
+    <pubDate>Sun, 14 Nov 2021 05:01:45 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>hybrid原理解析</title>
+      <link>https://aruseito.github.io/article/e4052a99/</link>
+      <guid>https://aruseito.github.io/article/e4052a99/</guid>
+      <pubDate>Sun, 14 Nov 2021 05:01:45 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;h2 id=&quot;hybrid-是什么？&quot;&gt;&lt;a href=&quot;#hybrid-是什么？&quot; class=&quot;headerlink&quot; title=&quot;hybrid 是什么？&quot;&gt;&lt;/a&gt;hybrid 是什么？&lt;/h2&gt;&lt;p&gt;hybrid 其实可以简单粗暴的理解为 一个原生应用内调用</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://aruseito.github.io/categories/%E5%8E%9F%E7%90%86%E8%A7%A3%E6%9E%90/">原理解析</category>
+      
+      
+      <category domain="https://aruseito.github.io/tags/hybrid/">hybrid</category>
+      
+      
+      <comments>https://aruseito.github.io/article/e4052a99/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>再探webpack-dev-server</title>
@@ -62,7 +89,7 @@
       
       
       
-      <category domain="https://aruseito.github.io/categories/%E5%89%8D%E6%AE%B5%E5%B7%A5%E7%A8%8B%E5%8C%96/">前段工程化</category>
+      <category domain="https://aruseito.github.io/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/">前端工程化</category>
       
       
       <category domain="https://aruseito.github.io/tags/PWA/">PWA</category>
@@ -274,38 +301,6 @@
       
       
       <comments>https://aruseito.github.io/article/3f8812bd/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>在React中因浅拷贝引发的BUG</title>
-      <link>https://aruseito.github.io/article/db2c0d0e/</link>
-      <guid>https://aruseito.github.io/article/db2c0d0e/</guid>
-      <pubDate>Wed, 21 Jul 2021 15:29:56 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;p&gt;今天在开发过程中遇到一个 BUG：useEffect 没有按照想象中的执行。所以有了本篇文章。&lt;/p&gt;
-&lt;p&gt;需求如下：有个列表，列表项中的&lt;code&gt;content&lt;/code&gt;字段如果内容大于 3</description>
-          
-        
-      
-      
-      
-      
-      <category domain="https://aruseito.github.io/categories/React/">React</category>
-      
-      
-      <category domain="https://aruseito.github.io/tags/%E6%B7%B1%E6%8B%B7%E8%B4%9D-%E6%B5%85%E6%8B%B7%E8%B4%9D/">深拷贝/浅拷贝</category>
-      
-      <category domain="https://aruseito.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</category>
-      
-      <category domain="https://aruseito.github.io/tags/React-Memo/">React.Memo</category>
-      
-      
-      <comments>https://aruseito.github.io/article/db2c0d0e/#disqus_thread</comments>
       
     </item>
     
