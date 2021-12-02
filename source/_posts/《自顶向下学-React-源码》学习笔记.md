@@ -14,8 +14,12 @@ banner_img: >-
   https://cdn.jsdelivr.net/gh/AruSeito/AruSeito.github.io@main/source/img/banner/bg26.jpg
 abbrlink: 3f8812bd
 date: 2021-08-07 17:47:35
-updated: 2021-08-07 17:47:35
+updated: 2021-11-29 20:55:35
 ---
+
+## 如何学？
+
+将 React 完整的运行过程可以分为三个部分：产生更新、决定更新什么组件、将更新的组件渲染到页面。即：调度、协调、渲染。
 
 ## 设计理念
 
@@ -49,13 +53,13 @@ React 的做法是实现一种异步可中断的更新机制。
 
 问题：
 
-协调器与渲染器是依次执行工作。如果同时更新多个节点，第一个 DOM 会先发生变化，但是因为更新过程是同步的，所以会同时渲染出来。如果在渲染过程中发生中断，协调器和渲染工作还在继续，但是第一个组件会先渲染完。就会产生 bug。
+协调器与渲染器是依次执行工作。如果同时更新多个节点，第一个 DOM 会先发生变化，但是因为更新过程是同步的，所以会同时渲染出来。如果在这种老的架构上实现异步可中断许安然的话，在渲染过程中发生中断，协调器和渲染工作还在继续，但是第一个组件会先渲染完，其他组件没变化，所以推出了 16 这种架构。
 
 ### 新 React 的架构（16 及以后）
 
 新 React 中分为三部分：调度更新（调度器）->决定更新什么（协调器）->将组件更新到视图中（渲染器）。
 
-调度器会对更新项分配优先级，将高优先级的先交给协调器，然后协调器进行 Diff 算法，再将更新的内容交给渲染器。如果在进行 Diff 的过程中来了新的更高优先级的更新项，则将正在 Diff 的更新项中断，先进行高优先级的 Diff。循环以上操作。因为这些操作都在内存中操作，用户并不会感知。（跟离线操作 DOM 一个意思）
+调度器会对更新项分配优先级，将高优先级的先交给协调器，接着创建虚拟 DOM，然后协调器进行 Diff 算法，给变化的 DOM 打上标记，再将更新的内容交给渲染器，由渲染器来执行视图操作，。如果在进行 Diff 的过程中来了新的更高优先级的更新项，则将正在 Diff 的更新项中断，先进行高优先级的 Diff。循环以上操作。因为这些操作都在内存中操作，用户并不会感知。（跟离线操作 DOM 一个意思）
 
 ## React 的新架构 ---- Fiber
 
@@ -93,13 +97,19 @@ Fiber 是协程的一种实现方式，另一种协程的实现方式为 Generat
 
 #### Fiber 树双缓存
 
-首次运行时，会创建一个 FiberRootNode 和 RootFiber，因为是首屏渲染，所以 RootFiber 下并没有任何内容。
+##### 挂载时
 
-然后进入 Render 阶段，首先创建 Fiber 树的根节点 RootFiber，使用 alternate 连接之前的 RootFiber，方便属性公用。然后根据组件返回的 JSX 在内存中创建一颗 Fiber 树（其实就是虚拟 DOM，存有各个节点的父子关系），。这个 Fiber 树叫 WorkInProgress Fiber 树。之前的那个树叫 Current Fiber 树。
+1. 运行`ReactDom.render`会创建一个 `FiberRoot` 和 `rootFiber`。`FiberRoot` 是整个应用的根结点，有且仅有一个。然后 `FiberRoot` 的 `current` 指针会指向页面上已经渲染好了的 Fiber 树上（`FiberRoot.current = rootFiber`）。`fiberRoot` 的 `current` 会指向当前页面上已渲染内容对应 Fiber 树，即 `current Fiber 树`。因为是首屏渲染，所以 rootFiber 下并没有任何东西。
 
-WorkInProgress Fiber 树在内存中构建完后，FiberRootNode 会将 Current 的指向从 Current Fiber 树移到 WorkInProgress Fiber 树。
+2. 进入`Render`阶段，根据组件的 JSX 创建 Fiber 树（`workInProgress Fiber`）。在创建的过程中会尝试复用`current fiber`上已有节点的属性。
 
-在更新时，跟之前一样，只不过在构建 Fiber 树的时候会进行 Current Fiber 要跟返回的 JSX 结构进行比对即 Diff 算法，然后生产 WorkInProgress Fiber 树。
+3. 进入`Commit`阶段 ，将 current 指针指向 `workInProgress 树`，成为 `current Fiber 树`。
+
+##### 更新时
+
+1. 进入`Render`阶段，根据组件的 JSX 一棵新的 `workInProgress Fiber`。在创建的过程中会尝试复用`current fiber`上已有节点的属性。
+
+2. `workInProgress Fiber 树`在`Render阶段`完成构建后进入`Commit阶段`渲染到页面上。渲染完毕后，`workInProgress Fiber 树`变为`current Fiber 树`。
 
 ## Render 阶段
 
@@ -107,13 +117,15 @@ Render 阶段指 调和器工作的阶段，主要是打标记（effectTag）是
 
 ![三个阶段](https://cdn.jsdelivr.net/gh/AruSeito/AruSeito.github.io@main/source/img/20210808/三个阶段.png)
 
+### 挂载时
+
 用`CRA`创建一个最基础的 React 应用，用 devTool 录制一个从 0 到 1 的火炬图。
 
 在 Render 阶段经历了如下：（可以在 beginWork 和 completeWork 打个断点看一下，看笔记想不起来记得再手动调试一次,记得对着 CRA 创建的 DEMO 代码看）
 
 废话连篇:首先进入 BeginWork 的三个参数分别为 `current, workInProgress, renderLanes`。因为是首次运行，所以 current 的 Tag 为`3`，代表`HostRoot`，然后恢复脚本执行。又到了 BeginWork 的断点处，这时`current`为空,`workInProgress`的 ElementType 为`f APP()`。再放开`workInProgress`又变成`div`。再放开是`header`,然后再放开是`img`，这时候因为 img 没有任何子节点，所以再放开后到了 completeWork，执行完后，会再寻找 img 的兄弟节点，然后找到了 P 标签，进入`beginWork`，再找 P 的子节点，先`Edit `begin 再 completed，接着是`Code`，因为 Code 内的子节点是纯文本，所以直接采用优化方案，不会找子节点，直接进入`completeWork`,然后再是最后的文本`and save to reload.`，执行完后进入父节点的`completeWork`。
 
-总结：根 beginWork->子节点 beginWork-如果有子节点->一直直行到最后一个子节点时，执行父节点的 completeWork; -如果子节点没有子节点->执行自己的 completeWork->然后找到兄弟元素。
+总结：根 beginWork->子节点 beginWork-如果有子节点->一直直行到最后一个子节点时，执行父节点的 completeWork; -如果子节点没有子节点->执行自己的 completeWork->然后找到兄弟元素。(深度优先遍历，遇到有唯一文本节点的，不会创建他的 Fiber 节点)
 
 专业总结:首先从`rootFiber`开始向下深度优先遍历,为遍历到的每个 Fiber 节点调用`beginWork`方法。当遍历到没有子组件的组件时就会进入“归”阶段。在归阶段调用`completeWork`,当某个 Fiber 节点执行完`completeWork`，如果其存在兄弟 Fiber 节点（即 fiber.sibling !== null），会进入其兄弟 Fiber 的“递”阶段。如果不存在兄弟 Fiber，会进入父级 Fiber 的“归”阶段。“递”和“归”阶段会交错执行直到“归”到 rootFiber。至此，render 阶段的工作就结束了。
 
@@ -145,14 +157,24 @@ effectTag |= Update; // 6 === 0b00000000000000000000110
 
 beginWork：当一个节点进入 beginWork 时，目的是为了创建当前 Fiber 节点的第一个子 Fiber 节点，判断当前 Fiber 节点的类型，进入不同的 Update 逻辑。在进入 Update 逻辑后，会先判断 WorkInProgress Fiber 中是否有对应的 Current Fiber，来决定是否标记 EffectTag（在 17.0.3 中更名为 ReactFiberFlags），接着判断当前 Fiber 节点的 child 的类型，来执行不同的创建操作，创建不同的子 Fiber 节点。
 
-completeWork：根据 WorkInProgress 的 tag，进入不同操作。首先为 Fiber 节点创建对应的 DOM 节点， 然后挂到 Fiber 节点的 StateNode 上。然后将 DOM 节点插入到之前创建好的 DOM 树中，然后初始化 DOM 对象的属性。
+completeWork：根据 WorkInProgress 的 tag，进入不同操作。首先为 Fiber 节点创建对应的 DOM 节点， 然后挂到 Fiber 节点的 StateNode （已经构建好的 DOM 树）上。然后将 DOM 节点插入到之前创建好的 DOM 树中，然后初始化 DOM 对象的属性。
 
 ![beginWork](https://react.iamkasong.com/img/beginWork.png)
 ![completeWork](https://react.iamkasong.com/img/completeWork.png)
 
+### 更新时
+
+### 流程
+
+beginWork：先判断是否可以复用，如果可以复用直接 Clone 在 current 中对应的 Fiber 节点。如果不能复用，判断当前 Fiber 节点的类型，进入不同的 Update 逻辑，在这里面会使用 JSX 对象与 current Fiber 节点进行对比，将对比的结果创建一个 fiber 节点并返回。
+
+completeWork：先 diff props，返回一个需要更新的属性名称构成的数组（[key1，value1,key2,value2...]）然后赋值给 workInpProgress.updateQueue，最后再将 effectTag 的 fiber 挂载在父级 fiber 的 effectList 末尾，并返回 workInProgress Fiber 树。
+
 作为 DOM 操作的依据，commit 阶段需要找到所有有 effectTag 的 Fiber 节点并依次执行 effectTag 对应操作？
 
 每个执行完 completeWork 且存在 effectTag 的 Fiber 节点会被保存在一条被称为 effectList 的单向链表中。effectList 中第一个 Fiber 节点保存在 fiber.firstEffect，最后一个元素保存在 fiber.lastEffect。类似 appendAllChildren，在“归”阶段，所有有 effectTag 的 Fiber 节点都会被追加在 effectList 中，最终形成一条以 rootFiber.firstEffect 为起点的单向链表。这样，在 commit 阶段只需要遍历 effectList 就能执行所有 effect 了。
+
+- 注意：近期 React 团队有在重构 Effect List（v18），老的会生成 Effect List，然后在 commit 阶段，直接遍历 EffectList 就能找到所有副作用的节点并执行对应的操作。在重构会会将子节点的副作用冒泡到父节点的 SubtreeFlags 属性。详细可见卡老师的另外一篇文章[React Effects List 大重构，是为了他？](https://mp.weixin.qq.com/s/-UNN45YttXJPA2TlrnSy3Q)
 
 ## Commit 阶段
 
@@ -261,6 +283,15 @@ useEffect 和 useLayoutEffect 的区别
 componentWillUnmount 会在 mutation 阶段执行，此时 current Fiber 树还指向前一次更新的 Fiber 树，在生命周期钩子内获取的 DOM 还是更新前的。
 
 componentDidMount 和 componentDidUpdate 会在 layout 阶段执行。此时 current Fiber 树已经指向更新后的 Fiber 树，在生命周期钩子内获取的 DOM 就是更新后的。
+
+#### UseEffect 和 UseLayoutEffect 区别
+
+|                   |                  useEffect                   | useLayoutEffect |
+| :---------------: | :------------------------------------------: | :-------------: |
+|  beforeMutation   |           调度 flushPassiveEffects           |       无        |
+|     mutation      |                      无                      |  执行 destroy   |
+|      layout       |            注册 destroy 和 create            |   执行 create   |
+| commit 阶段完成后 | 执行 flushPassiveEffects，内部执行注册的回调 |       无        |
 
 ## Diff 算法
 
