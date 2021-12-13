@@ -15,8 +15,36 @@
     <atom:link href="https://aruseito.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>前端养生搬砖工</description>
-    <pubDate>Sun, 14 Nov 2021 05:01:45 GMT</pubDate>
+    <pubDate>Mon, 13 Dec 2021 15:26:45 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>实现简易的可视化拖动生成页面</title>
+      <link>https://aruseito.github.io/article/71eb139c/</link>
+      <guid>https://aruseito.github.io/article/71eb139c/</guid>
+      <pubDate>Mon, 13 Dec 2021 15:06:15 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;最近因为临近年关，公司内好多活动页、落地页这种简单的页面要写。每次写都是在做重复的工作。&lt;br&gt;作为一个一直以优化掉自己为目标的前端切图仔，所以打算搞个可以让产品、UI 都能用明白的工具，来优化掉自己。&lt;/p&gt;
+&lt;h2 id=&quot;组成&quot;&gt;&lt;a href=&quot;#组成&quot;</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://aruseito.github.io/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/">前端工程化</category>
+      
+      
+      <category domain="https://aruseito.github.io/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/">可视化</category>
+      
+      
+      <comments>https://aruseito.github.io/article/71eb139c/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>hybrid原理解析</title>
@@ -272,35 +300,6 @@
       
       
       <comments>https://aruseito.github.io/article/c0cc8344/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>《自顶向下学 React 源码》学习笔记</title>
-      <link>https://aruseito.github.io/article/3f8812bd/</link>
-      <guid>https://aruseito.github.io/article/3f8812bd/</guid>
-      <pubDate>Sat, 07 Aug 2021 09:47:35 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;h2 id=&quot;理念篇&quot;&gt;&lt;a href=&quot;#理念篇&quot; class=&quot;headerlink&quot; title=&quot;理念篇&quot;&gt;&lt;/a&gt;理念篇&lt;/h2&gt;&lt;h3 id=&quot;如何学？&quot;&gt;&lt;a href=&quot;#如何学？&quot; class=&quot;headerlink&quot;</description>
-          
-        
-      
-      
-      
-      
-      <category domain="https://aruseito.github.io/categories/%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/">源码学习</category>
-      
-      
-      <category domain="https://aruseito.github.io/tags/React/">React</category>
-      
-      <category domain="https://aruseito.github.io/tags/%E6%BA%90%E7%A0%81/">源码</category>
-      
-      
-      <comments>https://aruseito.github.io/article/3f8812bd/#disqus_thread</comments>
       
     </item>
     
