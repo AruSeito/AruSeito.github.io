@@ -14,14 +14,15 @@ banner_img: >-
   https://cdn.jsdelivr.net/gh/AruSeito/AruSeito.github.io@main/source/img/banner/bg26.jpg
 abbrlink: 3f8812bd
 date: 2021-08-07 17:47:35
-updated: 2021-11-29 20:55:35
 ---
 
-## 如何学？
+## 理念篇
+
+### 如何学？
 
 将 React 完整的运行过程可以分为三个部分：产生更新、决定更新什么组件、将更新的组件渲染到页面。即：调度、协调、渲染。
 
-## 设计理念
+### 设计理念
 
 [React 哲学](https://zh-hans.reactjs.org/docs/thinking-in-react.html):React 是用 JavaScript 构建快速响应的大型 Web 应用程序的首选方式
 
@@ -43,9 +44,9 @@ React 的做法是实现一种异步可中断的更新机制。
 
 浏览器预留时间给 React，React 用这部分时间来干自己的事，如果这段时间内没干完，那么 React 就将控制权交回给浏览器，等下一次的预留时间。所以浏览器就有充足的时间进行样式布局+样式绘制。
 
-## 架构的演化
+### 架构的演化
 
-### 老 React 的架构（15 及以前）
+#### 老 React 的架构（15 及以前）
 
 老 React 中可以分为两部分：决定渲染组件（协调器）-》将组件渲染到视图中（渲染器）。
 
@@ -55,13 +56,13 @@ React 的做法是实现一种异步可中断的更新机制。
 
 协调器与渲染器是依次执行工作。如果同时更新多个节点，第一个 DOM 会先发生变化，但是因为更新过程是同步的，所以会同时渲染出来。如果在这种老的架构上实现异步可中断许安然的话，在渲染过程中发生中断，协调器和渲染工作还在继续，但是第一个组件会先渲染完，其他组件没变化，所以推出了 16 这种架构。
 
-### 新 React 的架构（16 及以后）
+#### 新 React 的架构（16 及以后）
 
 新 React 中分为三部分：调度更新（调度器）->决定更新什么（协调器）->将组件更新到视图中（渲染器）。
 
 调度器会对更新项分配优先级，将高优先级的先交给协调器，接着创建虚拟 DOM，然后协调器进行 Diff 算法，给变化的 DOM 打上标记，再将更新的内容交给渲染器，由渲染器来执行视图操作，。如果在进行 Diff 的过程中来了新的更高优先级的更新项，则将正在 Diff 的更新项中断，先进行高优先级的 Diff。循环以上操作。因为这些操作都在内存中操作，用户并不会感知。（跟离线操作 DOM 一个意思）
 
-## React 的新架构 ---- Fiber
+### React 的新架构 ---- Fiber
 
 Fiber 是协程的一种实现方式，另一种协程的实现方式为 Generator。不采用 Generator 的原因：Generator 和 async 一样都具有传染性。更新可以中断并继续，更新具有优先级，高优先级可以打断低优先级。
 
@@ -178,6 +179,7 @@ completeWork：先 diff props，返回一个需要更新的属性名称构成的
 
 ## Commit 阶段
 
+![2021/12/05/20211205130037](https://cdn.jsdelivr.net/gh/AruSeito/image-hosting-service@main/2021/12/05/20211205130037.png)
 主要工作分为三部分：
 
 - before mutation 阶段（执行 DOM 操作前）
@@ -194,15 +196,9 @@ completeWork：先 diff props，返回一个需要更新的属性名称构成的
 
    1. 处理 DOM 节点渲染/删除后 focus 和 blur 逻辑
 
-   2. 调用`getSnapshotBeforeUpdate`生命周期
+   2. 如果是类组件会调用`getSnapshotBeforeUpdate`生命周期：通过`finishedWork.stateNode`取得对应 Fiber 节点的原型。如果是函数组件会直接 return 出去。
 
-   3. 调度`useEffect`。
-
-为什么需要异步调用`useEffect`？
-
-> 与 componentDidMount、componentDidUpdate 不同的是，在浏览器完成布局与绘制之后，传给 useEffect 的函数会延迟调用。这使得它适用于许多常见的副作用场景，比如设置订阅和事件处理等情况，因此不应在函数中执行阻塞浏览器更新屏幕的操作。
-
-所以`useEffect`主要是防止同步执行时阻塞浏览器渲染。
+   3. 调度`useEffect`：如果是函数组件，并且他的`useEffect`被标记为`Passive` 会在这调度。以 NormalSchedulerPriority 为优先级，异步执行`flushPassiveEffects`（也就是`useEffect`的回调函数），由于`commit`阶段是同步执行的，所以`useEffect`的回调函数是在 commit 阶段执行完执行的。
 
 ### mutation 阶段
 
@@ -212,7 +208,7 @@ completeWork：先 diff props，返回一个需要更新的属性名称构成的
 
    1. 根据 ContentReset effectTag 重置文字节点
 
-   2. 更新 ref
+   2. 更新 ref（对应生命周期图中的 更新 DOM 和 refs）
 
    3. 根据 effectTag 分别处理，其中 effectTag 包括（Placement | Update | Deletion | Hydrating）
 
@@ -220,15 +216,17 @@ completeWork：先 diff props，返回一个需要更新的属性名称构成的
 
 当 Fiber 节点含有 Placement effectTag，意味着该 Fiber 节点对应的 DOM 节点需要插入到页面中。调用 commitPlacement
 
-1. 获取该 Fiber 节点的父级 DOM。
+1. 向上递归获取该 Fiber 节点的父级 Fiber 节点。
 
-2. 获取该 Fiber 节点的兄弟 DOM。
+2. 根据 fiber 节点找到对应的 DOM 节点（通过 fiber 节点上的 stateNode 属性），然后根据 Fiber 的 Tag 判断是不是 container（HostRoot 和 HostPortal 标记为 true，HostComponent 和 FundamentalComponent 标记为 false）
 
-3. 根据 DOM 兄弟节点存在决定调用`insertBefore` 或`appendChild`执行 DOM 插入操作
+3. 获取该 Fiber 节点的兄弟 DOM。
+
+4. 根据 DOM 兄弟节点存在决定调用`insertBefore` 或`appendChild`执行 DOM 插入操作
 
 - getHostSibling（获取兄弟 DOM 节点）的执行很耗时，当在同一个父 Fiber 节点下依次执行多个插入操作，getHostSibling 算法的复杂度为指数级。
 
-这是由于 Fiber 节点不只包括 HostComponent，所以 Fiber 树和渲染的 DOM 树节点并不是一一对应的。要从 Fiber 节点找到 DOM 节点很可能跨层级遍历
+这是由于 Fiber 节点不只包括 HostComponent，所以 Fiber 树和渲染的 DOM 树节点并不是一一对应的。要从 Fiber 节点找到 DOM 节点很可能跨层级遍历。
 
 #### Update effect
 
@@ -236,53 +234,43 @@ completeWork：先 diff props，返回一个需要更新的属性名称构成的
 
 当 fiber.tag 为 FunctionComponent，会调用 commitHookEffectListUnMount。该方法会遍历 effectList，执行所有 useLayoutEffect hook 的销毁函数。
 
-当 fiber.tag 为 HostComponent，会调用 commitUpdate。最终会在 updateDOMProperties （opens new window）中将 render 阶段 completeWork （opens new window）中为 Fiber 节点赋值的 updateQueue 对应的内容渲染在页面上。
+当 fiber.tag 为 HostComponent，会调用 commitUpdate，更新 Props 和 DOM 的属性。最终会在 updateDOMProperties 中将 render 阶段 completeWork 中为 Fiber 节点赋值的 updateQueue 对应的内容（diff 的结果）渲染在页面上。
+
+#### PlacementAndUpdate effect
+
+先执行 placement effect 的内容，再执行 Update effect 的内容
 
 #### Deletion effect
 
 当 Fiber 节点含有 Deletion effectTag，意味着该 Fiber 节点对应的 DOM 节点需要从页面中删除。调用的方法为 commitDeletion。
 
-1. 递归调用 Fiber 节点及其子孙 Fiber 节点中 fiber.tag 为 ClassComponent 的 componentWillUnmount (opens new window)生命周期钩子，从页面移除 Fiber 节点对应 DOM 节点
+1. 如果是`HostComponent`或`HostText`,递归查找的，首先找到它的父级 Fiber 节点，然后在找到它的子孙节点（因为这个整体相当于一个树，消除一个节点，他的下级也要被销毁）。然后调用`commitUnmount`。
 
-2. 解绑 ref
+2. 如果是函数组件及其相似的，遍历 effectList，进行注册 useEffect 的回调（将 fiber 节点和 effect 的回调放到一个 unmountEffects 队列中）进行调度。
 
-3. 调度 useEffect 的销毁函数
+3. 如果是类组件，会解绑 Ref，然后调用生命周期中的 componentWillUnmount
+
+4. 如果是 `HostComponent`，会解绑 Ref
+
+### mutation 阶段之后 Layout 阶段之前
+
+在这里会执行双缓存的原理，将 current 指针从 current 树，指向 workInProgress 树。
+
+为什么在这里执行？
+
+简单说就是为了确保每个阶段的树能对应上。
+
+因为 mutation 阶段时需要执行 componentWillUnmount，需要操作 current 树，而 layout 阶段要执行 componentDidMount/Update，需要跟新的 current 树对应上
+
+卡老师总结版：componentWillUnmount 会在 mutation 阶段执行，此时 current Fiber 树还指向前一次更新的 Fiber 树，在生命周期钩子内获取的 DOM 还是更新前的。componentDidMount 和 componentDidUpdate 会在 layout 阶段执行。此时 current Fiber 树已经指向更新后的 Fiber 树，在生命周期钩子内获取的 DOM 就是更新后的。
 
 ### Layout 阶段
 
 Layout 阶段也是遍历 effectList，执行 commitLayoutEffects 方法。
 
-commitLayoutEffects 主要做两件事：调用生命周期钩子和 hook 相关操作；赋值 ref
+1. 如果是函数组件会执行`useLayoutEffect`，如果是类组件会根据 current 有无来判断执行`componentDidMount`还是`componentDidUpdate`，并且还会生成会取一个`updateQueue`，这里存放的其实是 setState 的第二个参数，依赖于未更新前的 dom 属性来操作，也是在这调用的。如果`HostRoot`，也会有一个`updateQueue`，存放的是 render 的第三个参数。
 
-#### commitLayoutEffectOnFiber（调用生命周期钩子和 hook 相关操作）
-
-commitLayoutEffectOnFiber 方法会根据 fiber.tag 对不同类型的节点分别处理。
-
-- 对于 ClassComponent，他会通过 current === null?区分是 mount 还是 update，调用 componentDidMount （opens new window）或 componentDidUpdate
-
-  - 触发状态更新的 this.setState 如果赋值了第二个参数回调函数，也会在此时调用。
-
-- 对于 FunctionComponent 及相关类型，他会调用 useLayoutEffect hook 的回调函数，调度 useEffect 的销毁与回调函数
-
-useEffect 和 useLayoutEffect 的区别
-
-- useEffect 需要先进行调度，然后在 Layout 阶段完成后异步执行
-
-- useLayoutEffect 是同步执行的。mutation 阶段执行 useLayoutEffect 的销毁函数，然后在 Layout 阶段执行它的回调函数。
-
-#### commitAttachRef（赋值 Ref）
-
-获取 DOM 实例，赋值 Ref
-
-#### Fiber 树的切换
-
-切换时机：mutation 阶段结束后，Layout 阶段开始前。
-
-为什么？
-
-componentWillUnmount 会在 mutation 阶段执行，此时 current Fiber 树还指向前一次更新的 Fiber 树，在生命周期钩子内获取的 DOM 还是更新前的。
-
-componentDidMount 和 componentDidUpdate 会在 layout 阶段执行。此时 current Fiber 树已经指向更新后的 Fiber 树，在生命周期钩子内获取的 DOM 就是更新后的。
+2. hostComponent 或 class Component 存在 Ref 时，处理 Ref。
 
 #### UseEffect 和 UseLayoutEffect 区别
 
@@ -293,7 +281,23 @@ componentDidMount 和 componentDidUpdate 会在 layout 阶段执行。此时 cur
 |      layout       |            注册 destroy 和 create            |   执行 create   |
 | commit 阶段完成后 | 执行 flushPassiveEffects，内部执行注册的回调 |       无        |
 
+### useEffect 的异步调用
+
+1. `before mutation`阶段在`scheduleCallback`中调度`flushPassiveEffects`（对应的本文`beforeMutation`阶段的第三步）
+
+2. `layout` 阶段之后将 `effectList` 赋值给 `rootWithPendingPassiveEffects`
+
+3. `scheduleCallback` 触发 `flushPassiveEffects`， `flushPassiveEffects` 内部遍历 `rootWithPendingPassiveEffects`
+
+#### 为什么需要异步调用`useEffect`？
+
+> 与 componentDidMount、componentDidUpdate 不同的是，在浏览器完成布局与绘制之后，传给 useEffect 的函数会延迟调用。这使得它适用于许多常见的副作用场景，比如设置订阅和事件处理等情况，因此不应在函数中执行阻塞浏览器更新屏幕的操作。
+
+所以`useEffect`主要是防止同步执行时阻塞浏览器渲染。
+
 ## Diff 算法
+
+![2021/12/05/20211205222940](https://cdn.jsdelivr.net/gh/AruSeito/image-hosting-service@main/2021/12/05/20211205222940.png)
 
 与 DOM 节点有关的概念：
 
@@ -325,6 +329,16 @@ diff 的本质就是比较 1 和 4，然后生产 2。
 
 #### 单节点时
 
+- 如果 currentFiber 树中存在对应的节点并遍历。
+
+  - 如果 key 相同，type 相同，标记它的兄弟节点为 Deletion。再复用老的 Fiber，然后 return 出去
+
+  - 如果 key 相同，type 不同，先标记它及其兄弟为 Deletion，跳出循环，再根据 JSX 对象创建一个新的 Fiber 节点
+
+- 如果 currentFiber 树中不存在对应的节点，直接根据 JSX 对象创建一个新 Fiber 节点。
+
+卡老师总结版：
+
 上次更新时的 fiber 节点是否存在相应的 DOM 节点，如果不存在，则新生成一个 Fiber 节点，如果存在则判断该节点是否可以复用，如果不能复用则标记 DOM 需要被删除，然后生成一个新 Fiber 节点。如果可以复用，则将上次更新的 Fiber 节点的副本作为本次新生成的 Fiber 节点并返回。
 
 - 如何判断 DOM 节点是否可以复用？
@@ -332,6 +346,48 @@ diff 的本质就是比较 1 和 4，然后生产 2。
 React 通过先判断 key 是否相同，如果 key 相同则判断 type 是否相同，只有都相同时一个 DOM 节点才能复用。key 相同且 type 不同时执行 deleteRemainingChildren 将 child 及其兄弟 fiber 都标记删除。key 不同时仅将 child 标记删除。
 
 #### 多节点时
+
+有两种情况（一个 ul 下面有多个 li；一个 ul 下面多个 li 是使用 map 出来的），其实流程是一样的。
+
+注意：提到的老 Fiber 树其实是本层中兄弟节点构成的链表。
+
+注意： 因为层级比较深，可能markdown解析出来的不太方便看，请结合该章节头部的图来看。
+
+1. 同时遍历新 jsx 对象数组，老 Fiber 树。
+
+   1. 复用判断
+      - 如果key相同且type（就是标签相同）相同，复用之前的Fiber，并返回。
+      - 如果key相同且type不同，根据jsx对象创建新Fiber并返回。
+      - 如果key不同，返回null，并跳出循环。
+   2. 将老的 Fiber 标为 deletion
+   3. 将新的 Fiber 节点标为 placement，并记录最后一个可复用的节点在老 Fiber 树中的位置索引。
+      1. 记录新 Fiber 的位置（即在 jsx 对象数组中的索引）
+      2. 判断新Fiber是否为复用的
+         - 是
+           1. 拿到老Fiber节点的位置
+           2. 如果老位置小于新位置（表示新Fiber节点右移了），则新的Fiber节点被标记为placement，并返回最后一个可复用的节点在老Fiber树中的位置索引。
+           3. 如果老位置大于等于新位置，则直接返回老位置（不会标记为placement）
+           4. 注：老位置大于新位置表示要由老位置左移得到新位置，但是React中仅进行右移操作，前面的元素右移后，自己自然被顶到前面去了，实现了左移的效果，相当于变相实现了左移。（关于在React中仅进行右移操作请看[精读《DOM diff 原理详解》](https://github.com/ascoders/weekly/blob/master/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/190.%E7%B2%BE%E8%AF%BB%E3%80%8ADOM%20diff%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E3%80%8B.md)）
+         - 否，直接标记为placement
+
+2. 如果新 jsx 对象数组遍历完了（即删除节点了），标记没有遍历过的老 Fiber 节点为deletion，然后返回一棵新树（即 workInProgress Fiber 树）
+3. 如果老 Fiber 树遍历完了且新 jsx 对象数组没遍历完（即新增节点了），遍历剩下的 jsx 对象数组。
+
+   1. 创建新 Fiber 节点
+   2. 将新的 Fiber 节点标为 placement，并记录最后一个可复用的节点在老 Fiber 树中的位置索引。
+   3. 插入到新 Fiber 树中
+   4. 返回 workInProgress Fiber 树。
+
+4. 如果 jsx 对象数组没遍历完且老 Fiber 树也没遍历完（即没增没减）
+   1. 新建一个以老 Fiber 节点的 key 或者 index 为索引，老 Fiber 节点为 value 的 map
+   2.  遍历 jsx 对象数组，根据 jsx 对象的 key 或者 index 为索引，在 map 中找老 Fiber 节点
+   3. 如果老 Fiber 节点和 jsx 对象的 type 相同，则复用并返回新 Fiber 节点，如果不相同，则返回 null
+   4. 如果返回的新 Fiber 节点不为 null，则将新的 Fiber 节点标记为 placement 并记录位置，然后插入到新的 Fiber 树中
+   5. 如果 map 中还有剩余，就将剩下的全都标记为Deletion
+
+5. 返回 workInProgress Fiber 树。
+
+##### 卡老师总结版
 
 会进行两轮遍历。第一轮遍历处理更新的元素。第二轮遍历处理不属于更新的节点。
 
@@ -379,3 +435,504 @@ abcd->adbc（key和value都为表示的这个）
 剩余的newChildren = bc , 剩余的oldFiber= bc。第二个为b，在oldFiber中的位置为oldIndex = 1。因为oldIndex(1)<lastChangeIndex(3)，所以将该点右移。
 剩余的newChildren = c , 剩余的oldFiber= c。最后一个为c，在oldFiber中的位置为oldIndex = 2。oldIndex(2)<lastChangeIndex(3)，所以将该点右移。
 ```
+
+## 状态更新
+
+### 触发更新的方法
+
+- ReactDOM.render
+
+- this.setState
+
+- this.forceUpdate
+
+- useState
+
+- useReducer
+
+
+这么多方法如何接入同一种更新机制？
+
+在各自的处理方法里处理出来一个update对象，通过这个update对象进入统一的更新流程
+
+### 流程大纲
+
+0. 触发状态更新（根据场景调用不同方法）
+
+1. 创建update对象
+
+2. 从触发状态更新的`fiber`一直向上遍历到`rootFiber`。
+
+3. 调度更新
+
+4. render阶段
+
+5. commit阶段
+
+
+### 优先级与Update
+
+```js
+// 初始化的无优先级
+export const NoPriority = 0;
+// 立刻执行的优先级，最高优先级，同步的优先级
+export const ImmediatePriority = 1;
+// 用户触发的更新，如点击事件
+export const UserBlockingPriority = 2;
+// 一般优先级，最常见的，如请求数据后setState
+export const NormalPriority = 3;
+// 低优先级
+export const LowPriority = 4;
+// 空闲优先级
+export const IdlePriority = 5;
+```
+
+状态计算公式： `baseState + Update1 + Update2 = newState`。
+
+假设 update1 为 NormalPriority ，update2 为 UserBlockingPriority 。
+
+计算状态的时候会先计算`baseState+update2`得到一个中间状态，然后再去计算`update1`。
+
+#### 更新过程
+
+1. 创建更新
+2. 从触发更新的节点向上递归查找，直到找到FiberRootNode
+3. 在FiberRootNode上保存对应优先级
+4. 以对应优先级调度FiberRootNode。
+5. 触发对应的回调函数（render阶段入口）
+6. 从FiberRootNode深度优先遍历对路径上的节点进行Diff。
+7. 如果有高优先级进来，会先打断之前优先级过程，优先执行高优先级的。
+
+### update计算
+
+ReactDOM.render（同步更新）：按照顺序排成队更新，就好比正常情况下程序进行迭代升级 从1.0->1.1->1.2
+
+ReactDOM.createBlockingRoot和ReactDOM.createRoot（并发更新）：打断现在的过程，先进行优先级高的，比如线上遇到紧急BUG，那得先暂存当前过程，切换到main分支，进行修复后再rebase一下。
+
+
+
+### update类型
+
+- ReactDOM.render —— HostRoot
+- this.setState —— ClassComponent
+- this.forceUpdate —— ClassComponent
+- useState —— FunctionComponent
+- useReducer —— FunctionComponent
+
+由于不同类型组件工作方式不同，所以存在两种不同结构的`Update`，其中`ClassComponent`与`HostRoot`共用一套`Update`结构，`FunctionComponent`单独使用一种`Update`结构。
+
+
+
+#### HostRoot及ClassComponent
+
+#### ClassComponent的update对象
+
+```typescript
+const update: Update<*> = {
+    eventTime, // 任务时间
+    lane, // 优先级相关
+    tag: UpdateState, // 更新的类型，包括UpdateState | ReplaceState | ForceUpdate | CaptureUpdate。
+    payload: null, //更新挂载的数据，不同类型组件挂载的数据不同。对于ClassComponent，payload为this.setState的第一个传参。对于HostRoot，payload为ReactDOM.render的第一个传参。
+    callback: null,// 更新的回调函数，setState的第二个参数，ReactDom.render的第三个参数。对应layout阶段提到的回调函数
+    next: null, // 指针，指向另外的update，构成链表
+  };
+```
+
+
+
+#### update链表与Fiber节点有什么关系？
+
+fiber节点的updateQueue存的就是这个update链表。
+
+为什么要有链表？因为可能存在多个更新，比如在一个时间中我连续调用了三个setState。就会有三个update 或者 有多个优先级的update。
+
+#### classComponent的updateQueue
+
+```js
+const queue: UpdateQueue<State> = {
+    baseState: fiber.memoizedState, // 本次更新前的state，update会基于这个来计算newState
+  // 之所以在更新产生前该`Fiber节点`内就存在`Update`，是由于某些`Update`优先级较低所以在上次`render阶段`由`Update`计算`state`时被跳过。
+    firstBaseUpdate: null,//本次更新前该`Fiber节点`已保存的`Update`，链表头为`firstBaseUpdate`，
+    lastBaseUpdate: null,// 本次更新前该`Fiber节点`已保存的`Update`，链表尾为`lastBaseUpdate`
+    shared: { // 触发更新时，本次更新产生的`Update`会保存在`shared.pending`中形成单向环状链表。当由`Update`计算`state`时这个环会被剪开并连接在`lastBaseUpdate`后面。
+      pending: null,
+    },
+    effects: null, // 数组。保存`update.callback !== null`的`Update`。
+  };
+```
+
+#### update计算过程
+
+`ReactUpdateQueue.old.js的enqueueUpdate`过程
+
+假设有两个更新u1和u2在上一次render时因为优先级不够并且u1->u2，那么这两个会作为下次的`baseUpdate`。
+
+那么这时
+
+```
+queue.firstBaseUpdate = u1
+queue.lastBaseUpdate = u2
+```
+
+如果此时再次触发了两个更新u3和u4。
+
+当插入u3的时候 
+
+```js
+queue.shared.pending =  u3 ─────┐ 
+                         ^      |                                    
+                         └──────┘
+												   
+```
+
+然后插入 u4的时候
+
+```
+queue.shared.pending = u4 ──> u3
+                       ^      |                                    
+                       └──────┘
+```
+
+然后进入 render阶段的 beginWork阶段
+
+```
+queue.lastBaseUpdate = u1(->u2->u3->u4)
+queue.shared.pending = u4( -> u3)
+```
+
+并且也会在 currentFiber 树的对应fiber 节点上保存，确保 update 不会丢失。即`current.updateQueue.lastBaseUpdate = u1(->u2->u3->u4)`。然后再 render 阶段中断并重新开始的时候会再从`current`中 clone 出一份 lastBaseUpdate，如果在 commit 阶段中断并重新开始的时候会从`workInProgress树`上 clone 出一份 lastBaseUpdate
+
+然后以 baseState 为初始状态并遍历 firstBaseUpdate 开始计算newState。在遍历时如果有优先级低的`Update`会被跳过，做出来一个`newFirstBaseUpdate` 和`newBaseState`作为下次更新用的。如果满足优先级条件，会先计算 newState，然后判断 update 的 callback 有没有，有的话就push到workInProgress 的 effect 里，然后移动 update 的 next 指针，如果这个时候 update 为空了，要判断一下`queue.shared.pending`是否为空，如果为空就跳出循环，如果没为空（在 setState 里又 setState 了一个）就执行一遍裁剪环那里的操作。
+
+当遍历完成后判断newLastBaseUpdate是否为空，如果为空则将 newState 赋值给 `workInProgress.updateQueue` 的`baseState`，如果不为空的情况则说明本次 更新有 update 因为优先级不足被跳过了。遍历完成获得的 state就是该`Fiber节点`在本次更新的`state`（源码中叫做`memoizedState`）。
+
+
+
+#### 如何保证状态依赖的连续性
+
+```js
+baseState: ''
+shared.pending: A1 --> B2 --> C1 --> D2
+```
+
+其中`字母`代表该`Update`要在页面插入的字母，`数字`代表`优先级`，值越低`优先级`越高。
+
+第一次`render`，`优先级`为1。
+
+```js
+baseState: ''
+baseUpdate: null
+render阶段使用的Update: [A1, C1]
+memoizedState: 'AC'
+```
+
+其中`B2`由于优先级为2，低于当前优先级，所以他及其后面的所有`Update`会被保存在`baseUpdate`中作为下次更新的`Update`（即`B2 C1 D2`）。
+
+这么做是为了保持`状态`的前后依赖顺序。
+
+第二次`render`，`优先级`为2。
+
+```js
+baseState: 'A'
+baseUpdate: B2 --> C1 --> D2 
+render阶段使用的Update: [B2, C1, D2]
+memoizedState: 'ABCD'
+```
+
+这里会以 baseState 为初始状态，按照 baseUpdate 的顺序计算，然后得到 memoizedState。
+
+注意这里`baseState`并不是上一次更新的`memoizedState`。这是由于`B2`被跳过了。
+
+即当有`Update`被跳过时，`下次更新的baseState !== 上次更新的memoizedState`。
+
+
+
+React 不会保证中间状态即第一次 render 时的 memoizedState 正确，只会保证最终 render 的 memoizedStata 正确
+
+
+
+
+
+### ReactDOM.render流程
+
+1. 创建rootFiber和fiberRoot
+2. 连接rootFiber与fiberRootNode（将fiberRoot的current指向rootFiber）
+3. 初始化updateQueue
+4. 创建update
+5. 从fiber到rootFiber向上递归
+6. 调度更新
+7. render阶段
+8. commit阶段
+
+#### 与ReactDOM.createRoot().render的不同
+
+1. reactDOM.render的lane是1，reactDOM.createRoot的lane是512对应的二进制
+2. 在创建rootFiber时传参不一样。代表并发还是同步
+
+### this.setState流程
+
+1. 通过组件实例获取对应fiber
+2. 获取优先级
+3. 创建update
+4. 赋值回调函数
+5. 将update插入updateQueue
+6. 调度update
+
+## HOOK
+
+### 极简useState 的实现
+
+见[简易版useState](https://github.com/AruSeito/daily-practice/blob/main/others/useState/index.html)
+
+
+
+useState 在不同运行时会调用不同的方法，比如 mont 时会调用`mountState`，update 时会调用`updateState`，对应的时简易版的 useState 内的`if(isMount)`的两块内容
+
+其实 useReducer 和 useState 的实现方式是一样的，只不过 useState 在 return`dispatchAction.bind(baseReducer,queue)`时 预设传了一个 reducer。
+
+
+
+### useEffect和 useLayout 的实现
+
+
+
+同 useState 一样，在 mount 时会调用`mountEffect`,在 update 时会调用`updateEffect`
+
+1. 获取当前 hook 对应的数据
+
+   ```typescript
+   const hook: Hook = {
+       memoizedState: null,
+   
+       baseState: null,
+       baseQueue: null,
+       queue: null,
+   
+       next: null,
+   }
+   ```
+
+2. 获取依赖项
+
+3. 标记 flag，useEffect 和 useLayoutEffect 的 flag 是不同的
+
+4. mout 时和 update 的单独操作
+
+   - mount 时，保存 hook 的最后一个 effect 到 hook 的 memoizedState
+   - update 时
+     1. 取出上一次的 effect，取出上一次 effect 的销毁函数，取出上一次的依赖
+     2. 浅比较上一次的依赖和这次的依赖，pushEffect 进去时传入不同的 flag
+
+为什么销毁函数在 update 时取？
+
+因为只有effect 的 create 执行完之后才会有 destroy。
+
+为什么依赖改变了也要 pushEffect 进去？
+
+因为 所有 effect 都是存在 fiber 节点上的一条环状单向链表上的，顺序是不变的。
+
+
+
+### useRef的实现
+
+基本流程和上面的两种 hook 一样。
+
+mount 时
+
+1. 通过`mountWorkInProgressHook`获得当前 hook 的数据
+2. 把 initialState 挂到current 下
+3. 把 ref挂到 `hook.memoizedState`下
+4. 把 ref 返回出去
+
+update 时
+
+1. 通过`mountWorkInProgressHook`获得当前 hook 的数据
+2. 返回`hook.memoizedState`
+
+classComponet 中 createRef的实现
+
+创建一个包含`currentd`的对象并返回。
+
+
+
+#### ref 的工作流程
+
+##### render 阶段（为含有`ref`属性的`fiber`添加`Ref effectTag`）
+
+- 首屏渲染时（`*current* === null && ref !== null`)
+- update 时（`*current* !== null && *current*.ref !== ref`)
+
+以上两种情况会进入逻辑，给`fiber`标记上 Ref effectTag
+
+##### commit 阶段（为包含`Ref effectTag`的`fiber`执行对应操作）
+
+- 首屏渲染时，会在 commit 阶段的layout 阶段，判断有没有被标记上 Ref effectTag，被标记了的话就会进入不同类型的组件方法获取实例并赋值上去。如果 ref 时函数类型的话，会先执行得出结果再赋值给ref.current。
+
+- update 时
+
+  - mutation阶段时，对于`ref`属性改变的情况，需要先移除之前的`ref`。
+
+  - 对于`Deletion effectTag`的`fiber`（对应需要删除的`DOM节点`），需要递归他的子树，对子孙`fiber`的`ref`执行类似`commitDetachRef`的操作。
+  - 在 commitDetachRef 中，如果 ref 时函数类型的，会先执行一次该函数，再进行解绑。
+
+
+
+### useCallback 和 useMemo 的实现
+
+mount 时
+
+1. 通过`mountWorkInProgressHook`获得当前 hook 的数据
+2. 获取依赖项
+3. 获取计算结果（useCallback 不会有这一步，update 时同理）
+4. 将`[计算结果,依赖]`保存到`hook.memoizedState`（useCallback 会`[callback,依赖]`存上，update 时同理）
+5. 返回计算结果
+
+update 时
+
+1. 通过`mountWorkInProgressHook`获得当前 hook 的数据
+2. 获取依赖项
+3. 获取上一次计算结果与依赖`hook.memoizedState`
+4. 浅比较上一次的依赖与一下次的依赖，如果相等就返回上一次的结果
+5. 如果不想当，就获取新的计算结果
+6. 将`[计算结果,依赖]`保存到`hook.memoizedState`
+7. 返回计算结果
+
+## concurrent Mode
+
+### scheduler的工作原理及实现
+
+scheduler 的作用：
+
+- 时间切片
+- 优先级调度
+
+#### 时间切片原理
+
+时间切片本质是模拟实现requestIdelCallback 
+
+
+
+除去“浏览器重排/重绘”，浏览器中一帧可执行 js 的时机
+
+```js
+一个task(宏任务) -- 队列中全部job(微任务) -- requestAnimationFrame -- 浏览器重排/重绘 -- requestIdleCallback
+```
+
+`requestIdleCallback`是在“浏览器重排/重绘”后如果当前帧还有空余时间时被调用的。
+
+浏览器并没有提供其他`API`能够在同样的时机（浏览器重排/重绘后）调用以模拟其实现。
+
+唯一能精准控制调用时机的`API`是`requestAnimationFrame`，他能让我们在“浏览器重排/重绘”之前执行`JS`。
+
+所以，退而求其次，`Scheduler`的`时间切片`功能是通过`task`（宏任务）实现的。
+
+最常见的`task`当属`setTimeout`了。但是有个`task`比`setTimeout`执行时机更靠前，那就是[MessageChanne](https://developer.mozilla.org/zh-CN/docs/Web/API/MessageChannel)。
+
+`Scheduler`将需要被执行的回调函数作为`MessageChannel`的回调执行。如果当前宿主环境不支持`MessageChannel`，则使用`setTimeout`。
+
+在`React`的`render`阶段，开启`Concurrent Mode`时，每次遍历前，都会通过`Scheduler`提供的`shouldYield`方法判断是否需要中断遍历，使浏览器有时间渲染
+
+是否中断的依据，最重要的一点便是每个任务的剩余时间是否用完。
+
+在`Schdeduler`中，为任务分配的初始剩余时间为`5ms`。
+
+随着应用运行，会通过`fps`动态调整分配给任务的可执行时间。
+
+
+
+#### 优先级调度的实现
+
+`runWithPriority`接受一个`优先级`与一个`回调函数`，在`回调函数`内部调用获取`优先级`的方法都会取得第一个参数对应的`优先级`
+
+scheduler有五种优先级
+
+```js
+ImmediatePriority:
+UserBlockingPriority:
+NormalPriority:
+LowPriority:
+IdlePriority:
+```
+
+在`React`内部凡是涉及到`优先级`调度的地方，都会使用`runWithPriority`。
+
+不同`优先级`意味着不同时长的任务过期时间，优先级越高越快过期，越先执行
+
+#### 不同优先级的排序
+
+按照过期时间，可以将任务分为两类
+
+- 已就绪任务
+- 未就绪任务
+
+所以 scheduler 存在两个队列
+
+- timerQueue：保存未就绪任务
+- taskQueue：保存已就绪任务
+
+每当有新的未就绪的任务被注册，我们将其插入`timerQueue`并根据开始时间重新排列`timerQueue`中任务的顺序。
+
+当`timerQueue`中有任务就绪，即`startTime <= currentTime`，我们将其取出并加入`taskQueue`。
+
+取出`taskQueue`中最早过期的任务并执行他：当注册的回调函数执行后的返回值`continuationCallback`为`function`，会将`continuationCallback`作为当前任务的回调函数。如果返回值不是`function`，则将当前被执行的任务清除出`taskQueue`。
+
+为了能在O(1)复杂度找到两个队列中时间最早的那个任务，`Scheduler`使用[小顶堆 ](https://www.cnblogs.com/lanhaicode/p/10546257.html)实现了`优先级队列`。
+
+### Lane 模型的实现
+
+卡老师总结：[Lane模型的实现](https://react.iamkasong.com/concurrent/lane.html)
+
+### 异步可中断更新与饥饿问题
+
+如果低优先级的更新一直被高优先级的更新打断，随着时间的推移，低优先级的更新会过期，这个时候会被设为 `同步优先级`，来解决饥饿问题。
+
+
+
+在`workLoopConcurrent`方法内，会使用`!shouldYeid`来判断当前时间片是否用尽。
+
+在 `scheduler.js`中有个`workLoop`方法会取到当前被执行任务的 callBack，然后判断 callBack类型，如果是函数，会执行callBack，然后在判断 callback 的执行结果是否还是为 function，如果还是 function ，会把这个执行结果赋值给当前任务的 callback 然后再次调度这个 task，如果不是了，就考虑从小顶堆中剔除出去，高优先级中断低优先级任务的逻辑之一。
+
+
+
+### batchedUpdates的实现
+
+react 的内部优化方法。用来合并 update的。
+
+老版本的实现：在`ReactFiberWorkLoop.old.js`下的`unbatchedUpdates`方法
+
+获取 setState 时的上下文，当获取到的上下文包含`BatchedContext`时，不会马上触发更新，在事件回调结束时，才会触发更新。
+
+缺陷：
+
+都是同步的操作。比如：如果给这个事件回调将 setState 做异步调用时，就不会生效了。
+
+因为异步调用后，他已经脱离了当前的上下文。
+
+新版本的实现：在`ReactFiberWorkLoop.old.js`下的`ensureRootIsScheduled`方法
+
+基于 lane 模型实现，第一个setState 进去的时候按照正常的流程安排调度，第二个 setState 进去的时候因为这两个优先级分配的都是一样的就直接 return 出去了，所以第二次调度就不会调度回调函数了（也就是进入 render 阶段的函数了）
+
+关键点在于他们的 lane 是相同的。相同 lane 的条件：
+
+- 相同的优先级
+- 当前事件的 lanes 相同（`currentEventWipLanes`)
+
+### 高优先级更新如何插队
+
+1. 先取消掉低优先级的callback
+2. 在 render 阶段通过 prepareFreshStack 取消低优先级带来的影响。
+3. 调度高优先级的任务
+4. 再调度低优先级的任务
+
+
+
+
+
+
+
+
+
+
+
+
+
