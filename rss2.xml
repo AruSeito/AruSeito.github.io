@@ -15,8 +15,36 @@
     <atom:link href="https://aruseito.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>前端养生搬砖工</description>
-    <pubDate>Mon, 20 Dec 2021 15:52:31 GMT</pubDate>
+    <pubDate>Tue, 21 Dec 2021 14:42:44 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>微前端</title>
+      <link>https://aruseito.github.io/article/3b97e6/</link>
+      <guid>https://aruseito.github.io/article/3b97e6/</guid>
+      <pubDate>Tue, 21 Dec 2021 14:28:47 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;h2 id=&quot;目前前端存在的问题？&quot;&gt;&lt;a href=&quot;#目前前端存在的问题？&quot; class=&quot;headerlink&quot; title=&quot;目前前端存在的问题？&quot;&gt;&lt;/a&gt;目前前端存在的问题？&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;在目前所流行的主流框架 vue，react</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://aruseito.github.io/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/">前端工程化</category>
+      
+      
+      <category domain="https://aruseito.github.io/tags/%E5%BE%AE%E5%89%8D%E7%AB%AF/">微前端</category>
+      
+      
+      <comments>https://aruseito.github.io/article/3b97e6/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>React 之 同构</title>
@@ -264,34 +292,6 @@
       
       
       <comments>https://aruseito.github.io/article/a835eac3/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>手撕一个eventBus</title>
-      <link>https://aruseito.github.io/article/27b53d37/</link>
-      <guid>https://aruseito.github.io/article/27b53d37/</guid>
-      <pubDate>Sun, 29 Aug 2021 14:53:16 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;p&gt;首先需要知道 eventBus 中的方法都有哪些。按照方法进行基础框架的搭建&lt;/p&gt;
-&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter hljs&quot;&gt;&lt;div class=&quot;hljs</description>
-          
-        
-      
-      
-      
-      
-      <category domain="https://aruseito.github.io/categories/%E6%89%8B%E6%92%95%E6%BA%90%E7%A0%81/">手撕源码</category>
-      
-      
-      <category domain="https://aruseito.github.io/tags/eventBus/">eventBus</category>
-      
-      
-      <comments>https://aruseito.github.io/article/27b53d37/#disqus_thread</comments>
       
     </item>
     
