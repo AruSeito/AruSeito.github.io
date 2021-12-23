@@ -15,8 +15,37 @@
     <atom:link href="https://aruseito.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>前端养生搬砖工</description>
-    <pubDate>Thu, 23 Dec 2021 15:02:03 GMT</pubDate>
+    <pubDate>Thu, 23 Dec 2021 15:44:10 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>webpack5之Module Federation</title>
+      <link>https://aruseito.github.io/article/b60a0549/</link>
+      <guid>https://aruseito.github.io/article/b60a0549/</guid>
+      <pubDate>Thu, 23 Dec 2021 15:12:47 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;&lt;a href=&quot;https://webpack.docschina.org/concepts/module-federation/#root&quot;&gt;Module Federation 文档&lt;/a&gt;&lt;br&gt;&lt;a</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://aruseito.github.io/categories/%E5%BE%AE%E5%89%8D%E7%AB%AF/">微前端</category>
+      
+      
+      <category domain="https://aruseito.github.io/tags/%E5%BE%AE%E5%89%8D%E7%AB%AF/">微前端</category>
+      
+      <category domain="https://aruseito.github.io/tags/Module-Federation/">Module Federation</category>
+      
+      
+      <comments>https://aruseito.github.io/article/b60a0549/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>微前端</title>
@@ -261,37 +290,6 @@
       
       
       <comments>https://aruseito.github.io/article/86b01b74/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>emoji在Chrome显示问题</title>
-      <link>https://aruseito.github.io/article/a835eac3/</link>
-      <guid>https://aruseito.github.io/article/a835eac3/</guid>
-      <pubDate>Fri, 17 Sep 2021 14:21:35 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;p&gt;前几天接到一个莫名其妙的需求，说文本中有 emoji，然后文字和 emoji 粘连了，需要分开。&lt;/p&gt;
-&lt;p&gt;但是我打开看了一下产品说的位置，发现并没有粘连。&lt;/p&gt;
-&lt;p&gt;&lt;img</description>
-          
-        
-      
-      
-      
-      
-      <category domain="https://aruseito.github.io/categories/%E5%85%B6%E4%BB%96/">其他</category>
-      
-      
-      <category domain="https://aruseito.github.io/tags/emoji/">emoji</category>
-      
-      <category domain="https://aruseito.github.io/tags/Chrome/">Chrome</category>
-      
-      
-      <comments>https://aruseito.github.io/article/a835eac3/#disqus_thread</comments>
       
     </item>
     
