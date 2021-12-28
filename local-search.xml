@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>monorepo</title>
+    <link href="/article/7b6bc5a/"/>
+    <url>/article/7b6bc5a/</url>
+    
+    <content type="html"><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>我司代码存放方式比较复杂，n个项目都在同一个代码仓库下，主要是每个项目都没有关系，然后外面搞个大的webpack，每个项目里都有个小的gulp/webpack这样处理,而且没个小项目下都有个<code>.npmrc</code>，指向的文件还都不同。每次即使只修改了其中的某一个小东西，就要全部发布一遍。所以打算搞一下有没有办法优化，在查找资料的时候看到了「monorepo」这种方案，不过最后放弃了这种方案，所以本篇只记录一下自己了解到的monorepo</p><h2 id="长话短说"><a href="#长话短说" class="headerlink" title="长话短说"></a>长话短说</h2><p>由于这个仓库下的每个项目都没关系，也不会有互相引用的这种，甚至都不存在公用逻辑部分，唯一通用的可能也就只有框架选择方面，直接拆成了多个仓库来管理。过几天可以分享一下自己的对于这些项目制作cli的经验。</p><h2 id="monorepo"><a href="#monorepo" class="headerlink" title="monorepo"></a>monorepo</h2><p>单一代码库「monorepo」 与之相对的概念还有「multirepo」多代码库。像react、babel这种管理的都是用monorepo的理念来进行管理的。<br>其中比较成熟的实现方案有<a href="https://lerna.js.org/">lerna</a></p><p>这里不会去讨论lerna怎么用，而是单纯从体验来聊聊monorepo</p><p>monorepo最直观的好处就是调试方便，比如：我们有一个包，在某项目中引用了，但是如果我们发现在这个项目中的场景下有bug，要修改这个npm包，我们可能要先npm link，然后到这个项目里来看。这个时候调试起来就比较麻烦了。monorepo的话就直接引用本地的也没这么花里胡哨的操作，直接一把梭。</p><p>还有一点就是基建成本降低，只需要做一套基建流程，直接复用即可。</p><p>commit简化，比如之前修改一个功能，可能要横跨两三个库，在这种情况下直接一个commit就可以了，cr起来也更方便。</p><p>如果有依赖关系使用这种monorepo的倒是还可以，但是考虑到我们公司这里，只有框架共用的情况，组件都不通用的情况其实多个repo也没什么影响，毕竟也不会直接放到一起去联调。如果单纯为了减少node_modules的话，可能会得不偿失，因为有的项目都好多年没人维护了，但是现在还在用，react版本特别低。频繁改动的项目react版本就会比较高。这种情况可能抽离出来的也比较少了，就需要单独给这个项目处理。</p><p>相对的monorepo也是有缺陷的，单从定义来看monorepo要一个repo，所有代码都在里面，硬盘压力大，我明明不需要维护A，我却也要一起给A拉下来。</p><p>还有就是构建/测试问题，单repo的话就需要考虑一下 增量构建/测试，按需构建的问题,虽然可以全量，但是搞前端基建不就是为了开发的舒服吗？构建个东西等个1小时那就一点不幸福了。</p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>Monorepo 的开发模式就是将各自独立的项目，变成一个统一的工程整体，解决 MultiRepo 下出现的各种痛点，提升研发效率和工程质量。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>前端工程化</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>monorepo</tag>
+      
+      <tag>lerna</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>协同编辑冲突处理算法之OT算法</title>
     <link href="/article/23c3b7d4/"/>
     <url>/article/23c3b7d4/</url>

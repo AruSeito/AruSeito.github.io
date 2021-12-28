@@ -15,8 +15,37 @@
     <atom:link href="https://aruseito.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>前端养生搬砖工</description>
-    <pubDate>Mon, 27 Dec 2021 14:22:51 GMT</pubDate>
+    <pubDate>Tue, 28 Dec 2021 13:19:34 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>monorepo</title>
+      <link>https://aruseito.github.io/article/7b6bc5a/</link>
+      <guid>https://aruseito.github.io/article/7b6bc5a/</guid>
+      <pubDate>Tue, 28 Dec 2021 12:47:17 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot;</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://aruseito.github.io/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/">前端工程化</category>
+      
+      
+      <category domain="https://aruseito.github.io/tags/monorepo/">monorepo</category>
+      
+      <category domain="https://aruseito.github.io/tags/lerna/">lerna</category>
+      
+      
+      <comments>https://aruseito.github.io/article/7b6bc5a/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>协同编辑冲突处理算法之OT算法</title>
@@ -262,32 +291,6 @@
       
       
       <comments>https://aruseito.github.io/article/85e77354/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>虚拟列表的实现</title>
-      <link>https://aruseito.github.io/article/66276cbc/</link>
-      <guid>https://aruseito.github.io/article/66276cbc/</guid>
-      <pubDate>Thu, 23 Sep 2021 14:02:31 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;h2 id=&quot;什么是虚拟列表&quot;&gt;&lt;a href=&quot;#什么是虚拟列表&quot; class=&quot;headerlink&quot; title=&quot;什么是虚拟列表&quot;&gt;&lt;/a&gt;什么是虚拟列表&lt;/h2&gt;&lt;p&gt;只渲染可是区域的列表节点，滚动的时候进行数据的动态替换。&lt;/p&gt;
-&lt;h2 id=&quot;实现步骤&quot;&gt;&lt;a</description>
-          
-        
-      
-      
-      
-      
-      <category domain="https://aruseito.github.io/categories/%E6%89%8B%E6%92%95%E6%BA%90%E7%A0%81/">手撕源码</category>
-      
-      
-      
-      <comments>https://aruseito.github.io/article/66276cbc/#disqus_thread</comments>
       
     </item>
     
