@@ -15,8 +15,33 @@
     <atom:link href="https://aruseito.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>前端养生搬砖工</description>
-    <pubDate>Tue, 28 Dec 2021 13:28:37 GMT</pubDate>
+    <pubDate>Wed, 29 Dec 2021 14:51:36 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>JS小技巧</title>
+      <link>https://aruseito.github.io/article/4f47bf3c/</link>
+      <guid>https://aruseito.github.io/article/4f47bf3c/</guid>
+      <pubDate>Wed, 29 Dec 2021 14:41:09 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://aruseito.github.io/categories/JS/">JS</category>
+      
+      
+      
+      <comments>https://aruseito.github.io/article/4f47bf3c/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>monorepo</title>
@@ -262,35 +287,6 @@
       
       
       <comments>https://aruseito.github.io/article/246388ad/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>缓存背锅？</title>
-      <link>https://aruseito.github.io/article/85e77354/</link>
-      <guid>https://aruseito.github.io/article/85e77354/</guid>
-      <pubDate>Sat, 30 Oct 2021 08:44:24 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;h2 id=&quot;起因&quot;&gt;&lt;a href=&quot;#起因&quot; class=&quot;headerlink&quot;</description>
-          
-        
-      
-      
-      
-      
-      <category domain="https://aruseito.github.io/categories/%E9%9A%8F%E6%89%8B%E8%AE%B0%E5%BD%95/">随手记录</category>
-      
-      
-      <category domain="https://aruseito.github.io/tags/%E5%8D%8F%E5%95%86%E7%BC%93%E5%AD%98/">协商缓存</category>
-      
-      <category domain="https://aruseito.github.io/tags/%E5%BC%BA%E5%88%B6%E7%BC%93%E5%AD%98/">强制缓存</category>
-      
-      
-      <comments>https://aruseito.github.io/article/85e77354/#disqus_thread</comments>
       
     </item>
     

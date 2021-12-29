@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>JS小技巧</title>
+    <link href="/article/4f47bf3c/"/>
+    <url>/article/4f47bf3c/</url>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近沉迷于原神，无心学习。每天都在打原神哈哈哈哈哈，发的博客越来越水了。先定个小目标，这周先水一下一些小技巧，下周开始多总结一下，不在这么水下去了。</p><h2 id="判断对象的某属性是否存在"><a href="#判断对象的某属性是否存在" class="headerlink" title="判断对象的某属性是否存在"></a>判断对象的某属性是否存在</h2><p>原版：</p><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">if</span> (obj.a || obj.b || obj.c || obj.d ...) &#123;<br>  <span class="hljs-comment">// do something</span><br>&#125; <span class="hljs-keyword">else</span> &#123;<br>  <span class="hljs-comment">// 条件不符</span><br>&#125; <br></code></pre></div></td></tr></table></figure><p>新：</p><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 这个其实最好是显示的写出来。这里主要是为了简单。</span><br><span class="hljs-keyword">const</span> arr = [obj.a,obj.b,obj.c,obj.d,...]<br><span class="hljs-keyword">const</span> isTrue = arr.some(<span class="hljs-function"><span class="hljs-params">item</span> =&gt;</span> <span class="hljs-built_in">Boolean</span>(item))<br><span class="hljs-keyword">if</span> (isTrue) &#123;<br>  <span class="hljs-comment">// do something</span><br>&#125; <span class="hljs-keyword">else</span> &#123;<br>  <span class="hljs-comment">// 条件不符</span><br>&#125; <br></code></pre></div></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>JS</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>monorepo</title>
     <link href="/article/7b6bc5a/"/>
     <url>/article/7b6bc5a/</url>
