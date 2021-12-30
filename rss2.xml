@@ -15,8 +15,35 @@
     <atom:link href="https://aruseito.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>前端养生搬砖工</description>
-    <pubDate>Wed, 29 Dec 2021 14:51:36 GMT</pubDate>
+    <pubDate>Thu, 30 Dec 2021 14:57:08 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>状态管理</title>
+      <link>https://aruseito.github.io/article/8dbe3817/</link>
+      <guid>https://aruseito.github.io/article/8dbe3817/</guid>
+      <pubDate>Thu, 30 Dec 2021 14:55:48 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;h2 id=&quot;状态管理是什么？&quot;&gt;&lt;a href=&quot;#状态管理是什么？&quot; class=&quot;headerlink&quot; title=&quot;状态管理是什么？&quot;&gt;&lt;/a&gt;状态管理是什么？&lt;/h2&gt;&lt;h2 id=&quot;Redux&quot;&gt;&lt;a href=&quot;#Redux&quot;</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://aruseito.github.io/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/">前端工程化</category>
+      
+      
+      <category domain="https://aruseito.github.io/tags/%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/">状态管理</category>
+      
+      
+      <comments>https://aruseito.github.io/article/8dbe3817/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>JS小技巧</title>
@@ -260,33 +287,6 @@
       
       
       <comments>https://aruseito.github.io/article/d836125a/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>小试PWA</title>
-      <link>https://aruseito.github.io/article/246388ad/</link>
-      <guid>https://aruseito.github.io/article/246388ad/</guid>
-      <pubDate>Mon, 01 Nov 2021 12:32:05 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;h2 id=&quot;文件结构&quot;&gt;&lt;a href=&quot;#文件结构&quot; class=&quot;headerlink&quot; title=&quot;文件结构&quot;&gt;&lt;/a&gt;文件结构&lt;/h2&gt;&lt;p&gt;首先 PWA 的与正常的 web 都是一样的，只是在 html</description>
-          
-        
-      
-      
-      
-      
-      <category domain="https://aruseito.github.io/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/">前端工程化</category>
-      
-      
-      <category domain="https://aruseito.github.io/tags/PWA/">PWA</category>
-      
-      
-      <comments>https://aruseito.github.io/article/246388ad/#disqus_thread</comments>
       
     </item>
     

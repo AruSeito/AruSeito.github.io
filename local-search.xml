@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>状态管理</title>
+    <link href="/article/8dbe3817/"/>
+    <url>/article/8dbe3817/</url>
+    
+    <content type="html"><![CDATA[<h2 id="状态管理是什么？"><a href="#状态管理是什么？" class="headerlink" title="状态管理是什么？"></a>状态管理是什么？</h2><h2 id="Redux"><a href="#Redux" class="headerlink" title="Redux"></a>Redux</h2><h3 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h3><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><h3 id="react-redux"><a href="#react-redux" class="headerlink" title="react-redux"></a>react-redux</h3><h2 id="Mobx"><a href="#Mobx" class="headerlink" title="Mobx"></a>Mobx</h2><h3 id="模型-1"><a href="#模型-1" class="headerlink" title="模型"></a>模型</h3><h3 id="原理-1"><a href="#原理-1" class="headerlink" title="原理"></a>原理</h3><h3 id="react-mobx"><a href="#react-mobx" class="headerlink" title="react-mobx"></a>react-mobx</h3>]]></content>
+    
+    
+    <categories>
+      
+      <category>前端工程化</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>状态管理</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>JS小技巧</title>
     <link href="/article/4f47bf3c/"/>
     <url>/article/4f47bf3c/</url>
