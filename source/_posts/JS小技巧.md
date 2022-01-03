@@ -2,8 +2,8 @@
 title: JS小技巧
 categories:
   - JS
-index_img: 'http://www.dmoe.cc/random.php'
-banner_img: 'http://www.dmoe.cc/random.php'
+index_img: 'http://www.dmoe.cc/random.php?4'
+banner_img: 'http://www.dmoe.cc/random.php?4'
 abbrlink: 4f47bf3c
 date: 2021-12-29 22:41:09
 ---

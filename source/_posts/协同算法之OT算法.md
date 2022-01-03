@@ -8,8 +8,8 @@ keywords:
   - 协同编辑冲突处理算法
   - 协同算法
   - OT
-index_img: 'http://www.dmoe.cc/random.php'
-banner_img: 'http://www.dmoe.cc/random.php'
+index_img: 'http://www.dmoe.cc/random.php?1'
+banner_img: 'http://www.dmoe.cc/random.php?1'
 abbrlink: 23c3b7d4
 date: 2021-12-27 20:19:59
 ---

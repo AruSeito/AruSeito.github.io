@@ -8,8 +8,8 @@ tags:
 keywords:
   - Module Federation
   - webpack5
-index_img: 'http://www.dmoe.cc/random.php'
-banner_img: 'http://www.dmoe.cc/random.php'
+index_img: 'http://www.dmoe.cc/random.php?6'
+banner_img: 'http://www.dmoe.cc/random.php?6'
 abbrlink: b60a0549
 date: 2021-12-23 23:12:47
 ---

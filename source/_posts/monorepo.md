@@ -7,8 +7,8 @@ tags:
   - lerna
 keywords:
   - monorepo
-index_img: 'http://www.dmoe.cc/random.php'
-banner_img: 'http://www.dmoe.cc/random.php'
+index_img: 'http://www.dmoe.cc/random.php?5'
+banner_img: 'http://www.dmoe.cc/random.php?5'
 abbrlink: 7b6bc5a
 date: 2021-12-28 20:47:17
 ---
