@@ -15,8 +15,34 @@
     <atom:link href="https://aruseito.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>前端养生搬砖工</description>
-    <pubDate>Mon, 03 Jan 2022 14:01:17 GMT</pubDate>
+    <pubDate>Sun, 16 Jan 2022 13:49:48 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Router简易实现</title>
+      <link>https://aruseito.github.io/article/bce8a1b7/</link>
+      <guid>https://aruseito.github.io/article/bce8a1b7/</guid>
+      <pubDate>Sun, 16 Jan 2022 13:14:04 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;在使用React-router时分别对应的是&lt;code&gt;HashRouter&lt;/code&gt;和&lt;code&gt;BrowserRouter&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;从名字上就可以知道了，对应的是前端中的 &lt;code&gt;hash路由&lt;/code&gt; 和</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://aruseito.github.io/categories/%E5%85%B6%E4%BB%96/">其他</category>
+      
+      
+      
+      <comments>https://aruseito.github.io/article/bce8a1b7/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>状态管理</title>
@@ -259,33 +285,6 @@
       
       
       <comments>https://aruseito.github.io/article/e4052a99/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>再探webpack-dev-server</title>
-      <link>https://aruseito.github.io/article/d836125a/</link>
-      <guid>https://aruseito.github.io/article/d836125a/</guid>
-      <pubDate>Mon, 08 Nov 2021 13:55:36 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;p&gt;之前写过一篇关于热更新的文章:&lt;a href=&quot;https://aruseito.github.io/article/57ff1b88/&quot;&gt;开着飞机修引擎-热更新&lt;/a&gt;，但是只描述了 ws 是如何通知的，只是简单带过了客户端这面的更新流程，这次我们打开&lt;a</description>
-          
-        
-      
-      
-      
-      
-      <category domain="https://aruseito.github.io/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/">前端工程化</category>
-      
-      
-      <category domain="https://aruseito.github.io/tags/webpack/">webpack</category>
-      
-      
-      <comments>https://aruseito.github.io/article/d836125a/#disqus_thread</comments>
       
     </item>
     
