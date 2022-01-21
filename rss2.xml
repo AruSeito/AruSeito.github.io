@@ -45,33 +45,6 @@
     </item>
     
     <item>
-      <title>状态管理</title>
-      <link>https://aruseito.github.io/article/8dbe3817/</link>
-      <guid>https://aruseito.github.io/article/8dbe3817/</guid>
-      <pubDate>Thu, 30 Dec 2021 14:55:48 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;h2 id=&quot;状态管理是什么？&quot;&gt;&lt;a href=&quot;#状态管理是什么？&quot; class=&quot;headerlink&quot; title=&quot;状态管理是什么？&quot;&gt;&lt;/a&gt;状态管理是什么？&lt;/h2&gt;&lt;h2 id=&quot;Redux&quot;&gt;&lt;a href=&quot;#Redux&quot;</description>
-          
-        
-      
-      
-      
-      
-      <category domain="https://aruseito.github.io/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/">前端工程化</category>
-      
-      
-      <category domain="https://aruseito.github.io/tags/%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/">状态管理</category>
-      
-      
-      <comments>https://aruseito.github.io/article/8dbe3817/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
       <title>JS小技巧</title>
       <link>https://aruseito.github.io/article/4f47bf3c/</link>
       <guid>https://aruseito.github.io/article/4f47bf3c/</guid>
@@ -285,6 +258,33 @@
       
       
       <comments>https://aruseito.github.io/article/e4052a99/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>再探webpack-dev-server</title>
+      <link>https://aruseito.github.io/article/d836125a/</link>
+      <guid>https://aruseito.github.io/article/d836125a/</guid>
+      <pubDate>Mon, 08 Nov 2021 13:55:36 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;之前写过一篇关于热更新的文章:&lt;a href=&quot;https://aruseito.github.io/article/57ff1b88/&quot;&gt;开着飞机修引擎-热更新&lt;/a&gt;，但是只描述了 ws 是如何通知的，只是简单带过了客户端这面的更新流程，这次我们打开&lt;a</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://aruseito.github.io/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/">前端工程化</category>
+      
+      
+      <category domain="https://aruseito.github.io/tags/webpack/">webpack</category>
+      
+      
+      <comments>https://aruseito.github.io/article/d836125a/#disqus_thread</comments>
       
     </item>
     
