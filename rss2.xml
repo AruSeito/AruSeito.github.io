@@ -15,8 +15,64 @@
     <atom:link href="https://aruseito.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>前端养生搬砖工</description>
-    <pubDate>Tue, 18 Jan 2022 13:55:22 GMT</pubDate>
+    <pubDate>Mon, 21 Feb 2022 15:21:52 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>数据埋点、监控方案</title>
+      <link>https://aruseito.github.io/article/c3f02c48/</link>
+      <guid>https://aruseito.github.io/article/c3f02c48/</guid>
+      <pubDate>Mon, 21 Feb 2022 14:58:53 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;h2 id=&quot;数据埋点、监控是什么？&quot;&gt;&lt;a href=&quot;#数据埋点、监控是什么？&quot; class=&quot;headerlink&quot;</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://aruseito.github.io/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/">前端工程化</category>
+      
+      
+      <category domain="https://aruseito.github.io/tags/%E5%9F%8B%E7%82%B9/">埋点</category>
+      
+      <category domain="https://aruseito.github.io/tags/%E7%9B%91%E6%8E%A7/">监控</category>
+      
+      
+      <comments>https://aruseito.github.io/article/c3f02c48/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>自定义nextJs服务端</title>
+      <link>https://aruseito.github.io/article/d693fb46/</link>
+      <guid>https://aruseito.github.io/article/d693fb46/</guid>
+      <pubDate>Fri, 21 Jan 2022 14:57:38 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot;</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://aruseito.github.io/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/">前端工程化</category>
+      
+      
+      <category domain="https://aruseito.github.io/tags/node%E4%B8%AD%E9%97%B4%E4%BB%B6/">node中间件</category>
+      
+      
+      <comments>https://aruseito.github.io/article/d693fb46/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Router简易实现</title>
@@ -231,60 +287,6 @@
       
       
       <comments>https://aruseito.github.io/article/71eb139c/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>hybrid原理解析</title>
-      <link>https://aruseito.github.io/article/e4052a99/</link>
-      <guid>https://aruseito.github.io/article/e4052a99/</guid>
-      <pubDate>Sun, 14 Nov 2021 05:01:45 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;h2 id=&quot;hybrid-是什么？&quot;&gt;&lt;a href=&quot;#hybrid-是什么？&quot; class=&quot;headerlink&quot; title=&quot;hybrid 是什么？&quot;&gt;&lt;/a&gt;hybrid 是什么？&lt;/h2&gt;&lt;p&gt;hybrid 其实可以简单粗暴的理解为 一个原生应用内调用</description>
-          
-        
-      
-      
-      
-      
-      <category domain="https://aruseito.github.io/categories/%E5%8E%9F%E7%90%86%E8%A7%A3%E6%9E%90/">原理解析</category>
-      
-      
-      <category domain="https://aruseito.github.io/tags/hybrid/">hybrid</category>
-      
-      
-      <comments>https://aruseito.github.io/article/e4052a99/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>再探webpack-dev-server</title>
-      <link>https://aruseito.github.io/article/d836125a/</link>
-      <guid>https://aruseito.github.io/article/d836125a/</guid>
-      <pubDate>Mon, 08 Nov 2021 13:55:36 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;p&gt;之前写过一篇关于热更新的文章:&lt;a href=&quot;https://aruseito.github.io/article/57ff1b88/&quot;&gt;开着飞机修引擎-热更新&lt;/a&gt;，但是只描述了 ws 是如何通知的，只是简单带过了客户端这面的更新流程，这次我们打开&lt;a</description>
-          
-        
-      
-      
-      
-      
-      <category domain="https://aruseito.github.io/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/">前端工程化</category>
-      
-      
-      <category domain="https://aruseito.github.io/tags/webpack/">webpack</category>
-      
-      
-      <comments>https://aruseito.github.io/article/d836125a/#disqus_thread</comments>
       
     </item>
     
