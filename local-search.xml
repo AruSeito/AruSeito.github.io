@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>优化项目构建时间</title>
+    <link href="/article/d3ffe87/"/>
+    <url>/article/d3ffe87/</url>
+    
+    <content type="html"><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>线上打包时间太长,修个BUG1分钟，构建发布一下1小时。</p><p>因为项目比较特殊，类似于menorepo，但又不是那种形式。最外面一层webpack，内部分为多个项目，某些项目下有多个页面，每个页面都要调一次webpack。</p><p><img src="https://cdn.jsdelivr.net/gh/AruSeito/image-hosting-service@main/2022/02/28/%E9%A1%B9%E7%9B%AEwebpack%E7%BB%93%E6%9E%84%E5%9B%BE_20220228.png" alt="2022/02/28/项目webpack结构图_20220228"></p><p>一个脚本会依次调取这么多个webpack启动，虽然图中采用页面的概念，但是其实是实实在在的一个小型项目。</p><p>本意是想每个项目共用一个webpack，但是同学们误解了我的意思，新起了个nextJS的项目，然后开始迁移，迁移部分后遇到了nginx匹配规则难写的问题，详见<a href="https://aruseito.github.io/article/d693fb46/">nextJS自定义服务器</a>，多页面的webpack配置不在本项目讨论范围内，因此只会记录一下比较经典的地方。</p><h2 id="发现问题"><a href="#发现问题" class="headerlink" title="发现问题"></a>发现问题</h2><p>首先我们得明白问题处在哪，我们在最外层安装个webpack插件<code>speed-measure-webpack-plugin</code>，</p><p>修改webpack配置</p><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">const</span> SpeedMeasurePlugin = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;speed-measure-webpack-plugin&#x27;</span>);<br><br><span class="hljs-built_in">module</span>.exports = &#123;<br>  <span class="hljs-comment">// ...</span><br>  <span class="hljs-attr">plugins</span>:[<br>    <span class="hljs-keyword">new</span> SpeedMeasurePlugin()<br>  ]<br>&#125;<br></code></pre></div></td></tr></table></figure><p>然后仅对我们常用的项目A进行构建，得到信息：</p><p><img src="https://cdn.jsdelivr.net/gh/AruSeito/image-hosting-service@main/2022/02/28/%E4%BC%98%E5%8C%96babel-loader%E5%89%8D.PNG" alt="2022/02/28/优化babel-loader前"></p><p>可以看到加载时长的有两部分</p><ol><li><code>mini-css-extract-plugin</code> 、<code>css-loader</code>、<code>postcss-loader</code>、<code>sass-loader</code>多次加载，并且每次都时间很长</li><li><code>babel-loader</code>加载时间长</li></ol><p>可以初步确定优化的两个方向</p><ol><li>去除多次加载</li><li>加快底层构建速度</li></ol><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h3 id="去除多次加载"><a href="#去除多次加载" class="headerlink" title="去除多次加载"></a>去除多次加载</h3><p>在进行webpack配置查看时，发现这个暂时无法解决，目前我们内部在样式方案迭代中每次都没有完全迭代，导致遗留下很多种方案，因此需要写四个rule进行匹配。<code>*.css</code>,<code>*.module.css</code>,<code>*.sass</code>,<code>*.module.sass</code>，每个的配置还都不一样。需要解决的话，需要将以前的迭代过程中残留下的全都统一才方便解决</p><h3 id="加快底层构建速度"><a href="#加快底层构建速度" class="headerlink" title="加快底层构建速度"></a>加快底层构建速度</h3><p>直接将<code>babel-loader</code>换成<code>esbuild-loader</code>，</p><p>配置如下：</p><p><img src="https://cdn.jsdelivr.net/gh/AruSeito/image-hosting-service@main/2022/02/28/esbuild%E9%85%8D%E7%BD%AE.PNG" alt="2022/02/28/esbuild配置"></p><p>只更换了loader，其他没动，再来构建一次查看结果</p><p><img src="https://cdn.jsdelivr.net/gh/AruSeito/image-hosting-service@main/2022/02/28/%E4%BC%98%E5%8C%96babel-loader%E5%90%8E.PNG" alt="2022/02/28/优化babel-loader后"></p><p>babel-loader 由原来的1分钟提速到18s,提速30%。</p><p>目前还不清楚为什么esbuild引入后为什么会对css-loader有影响，但整体提速达到了百分之50。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>前端工程化</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>webpack</tag>
+      
+      <tag>构建优化</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>数据埋点、监控方案</title>
     <link href="/article/c3f02c48/"/>
     <url>/article/c3f02c48/</url>
@@ -66,25 +93,6 @@
     <categories>
       
       <category>其他</category>
-      
-    </categories>
-    
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>JS小技巧</title>
-    <link href="/article/4f47bf3c/"/>
-    <url>/article/4f47bf3c/</url>
-    
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近沉迷于原神，无心学习。每天都在打原神哈哈哈哈哈，发的博客越来越水了。先定个小目标，这周先水一下一些小技巧，下周开始多总结一下，不在这么水下去了。</p><h2 id="判断对象的某属性是否存在"><a href="#判断对象的某属性是否存在" class="headerlink" title="判断对象的某属性是否存在"></a>判断对象的某属性是否存在</h2><p>原版：</p><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">if</span> (obj.a || obj.b || obj.c || obj.d ...) &#123;<br>  <span class="hljs-comment">// do something</span><br>&#125; <span class="hljs-keyword">else</span> &#123;<br>  <span class="hljs-comment">// 条件不符</span><br>&#125; <br></code></pre></div></td></tr></table></figure><p>新：</p><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 这个其实最好是显示的写出来。这里主要是为了简单。</span><br><span class="hljs-keyword">const</span> arr = [obj.a,obj.b,obj.c,obj.d,...]<br><span class="hljs-keyword">const</span> isTrue = arr.some(<span class="hljs-function"><span class="hljs-params">item</span> =&gt;</span> <span class="hljs-built_in">Boolean</span>(item))<br><span class="hljs-keyword">if</span> (isTrue) &#123;<br>  <span class="hljs-comment">// do something</span><br>&#125; <span class="hljs-keyword">else</span> &#123;<br>  <span class="hljs-comment">// 条件不符</span><br>&#125; <br></code></pre></div></td></tr></table></figure>]]></content>
-    
-    
-    <categories>
-      
-      <category>JS</category>
       
     </categories>
     

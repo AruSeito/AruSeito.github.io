@@ -15,8 +15,37 @@
     <atom:link href="https://aruseito.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>前端养生搬砖工</description>
-    <pubDate>Mon, 21 Feb 2022 15:24:30 GMT</pubDate>
+    <pubDate>Mon, 28 Feb 2022 15:10:44 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>优化项目构建时间</title>
+      <link>https://aruseito.github.io/article/d3ffe87/</link>
+      <guid>https://aruseito.github.io/article/d3ffe87/</guid>
+      <pubDate>Mon, 28 Feb 2022 14:30:10 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot;</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://aruseito.github.io/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/">前端工程化</category>
+      
+      
+      <category domain="https://aruseito.github.io/tags/webpack/">webpack</category>
+      
+      <category domain="https://aruseito.github.io/tags/%E6%9E%84%E5%BB%BA%E4%BC%98%E5%8C%96/">构建优化</category>
+      
+      
+      <comments>https://aruseito.github.io/article/d3ffe87/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>数据埋点、监控方案</title>
@@ -97,31 +126,6 @@
       
       
       <comments>https://aruseito.github.io/article/bce8a1b7/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>JS小技巧</title>
-      <link>https://aruseito.github.io/article/4f47bf3c/</link>
-      <guid>https://aruseito.github.io/article/4f47bf3c/</guid>
-      <pubDate>Wed, 29 Dec 2021 14:41:09 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</description>
-          
-        
-      
-      
-      
-      
-      <category domain="https://aruseito.github.io/categories/JS/">JS</category>
-      
-      
-      
-      <comments>https://aruseito.github.io/article/4f47bf3c/#disqus_thread</comments>
       
     </item>
     
